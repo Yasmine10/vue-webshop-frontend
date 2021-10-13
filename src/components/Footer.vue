@@ -50,9 +50,6 @@
             </li>
           </ul>
         </div>
-        <div class="copyright">
-          <p></p>
-        </div>
       </footer>
     </div>
   </div>
@@ -125,7 +122,6 @@ export default {
 }
 
 .social-links {
-  
   flex-grow: 1;
   
   &__list {

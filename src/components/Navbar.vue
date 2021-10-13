@@ -53,7 +53,7 @@ export default {
   padding-block: 0.5rem;
   
   &__toggle {
-    @media (min-width: 1000px) {
+    @media (min-width: 768px) {
       display: none;
     }
   }
@@ -73,7 +73,7 @@ export default {
     height: 0;
     margin: 0;
     
-    @media (min-width: 1000px) {
+    @media (min-width: 768px) {
       flex-direction: row;
       gap: 3.5em;
       visibility: visible;
