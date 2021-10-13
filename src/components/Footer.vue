@@ -135,6 +135,10 @@ export default {
     
     margin-top: 0;
     margin-bottom: 0;
+    
+    @media (min-width: 1000px) {
+      justify-content: flex-end;
+    }
   }
   
   &__item a {

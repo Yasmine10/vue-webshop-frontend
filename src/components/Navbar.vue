@@ -46,7 +46,6 @@ export default {
 
 .nav-wrapper {
   background-color: var(--clr-primary-silver-pink);
-  position: fixed;
   width: 100%;
 }
 

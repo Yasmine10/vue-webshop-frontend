@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <Header class="header" />
     <Navbar class="navbar" />
     <main class="main-content">
       <router-view />
@@ -9,12 +10,14 @@
 </template>
 
 <script>
+import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   components: {
+    Header,
     Navbar,
     Footer
   }
