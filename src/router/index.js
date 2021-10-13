@@ -44,7 +44,7 @@ const routes = [
   {
     path: "/",
     redirect: "/home",
-  }
+  },
 ];
 
 const router = createRouter({

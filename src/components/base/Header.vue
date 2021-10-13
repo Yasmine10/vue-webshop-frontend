@@ -19,13 +19,12 @@ export default {
   name: "Header",
   components: {
     PhPawPrint,
-    PhShoppingCart
-  }
+    PhShoppingCart,
+  },
 };
 </script>
 
 <style scoped lang="scss">
-
 header {
   position: relative;
   padding-block: 0.5rem;
@@ -37,16 +36,17 @@ header {
     justify-content: space-between;
     align-items: flex-end;
   }
-  
+
   &__link {
     text-decoration: none;
     color: var(--clr-primary-space-cadet);
-    
-    &:nth-child(2):hover, &:nth-child(2):focus {
+
+    &:nth-child(2):hover,
+    &:nth-child(2):focus {
       color: var(--clr-accent-mellow-apricot);
     }
   }
-  
+
   &__logo {
     display: flex;
     align-items: flex-end;
@@ -56,9 +56,7 @@ header {
       font-size: var(--fs-30pt);
       font-weight: 600;
       text-transform: capitalize;
-      
     }
   }
 }
-
 </style>

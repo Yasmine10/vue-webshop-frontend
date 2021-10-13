@@ -27,23 +27,22 @@ export default {
   name: "Navbar",
   components: {
     PhList,
-    PhX
+    PhX,
   },
   data() {
     return {
-      isToggled: false
+      isToggled: false,
     };
   },
   methods: {
     toggleMenu() {
       this.isToggled = !this.isToggled;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-
 .nav-wrapper {
   background-color: var(--clr-primary-silver-pink);
   width: 100%;
@@ -51,20 +50,20 @@ export default {
 
 .nav {
   padding-block: 0.5rem;
-  
+
   &__toggle {
     @media (min-width: 768px) {
       display: none;
     }
   }
-  
+
   &__toggle-icon {
     all: unset;
     display: flex;
     color: var(--clr-neutral-white);
     cursor: pointer;
   }
-  
+
   &__list {
     display: flex;
     flex-direction: column;
@@ -72,7 +71,7 @@ export default {
     visibility: hidden;
     height: 0;
     margin: 0;
-    
+
     @media (min-width: 768px) {
       flex-direction: row;
       gap: 3.5em;
@@ -81,24 +80,24 @@ export default {
       margin: inherit;
     }
   }
-  
+
   &__list--show {
     visibility: visible;
     height: initial;
     margin: inherit;
     padding-block: 1rem;
   }
-  
+
   &__item {
     text-decoration: none;
     color: var(--clr-neutral-white);
     font-weight: var(--fw-bold);
-    
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
       color: var(--clr-primary-space-cadet);
       font-weight: var(--fw-bold);
     }
   }
 }
-
 </style>

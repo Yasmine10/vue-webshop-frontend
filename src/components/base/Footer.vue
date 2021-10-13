@@ -63,13 +63,12 @@ export default {
   components: {
     PhFacebookLogo,
     PhTwitterLogo,
-    PhInstagramLogo
-  }
+    PhInstagramLogo,
+  },
 };
 </script>
 
 <style scoped lang="scss">
-
 .footer-wrapper {
   background-color: var(--clr-primary-space-cadet);
   color: var(--clr-neutral-light-gray);
@@ -78,7 +77,7 @@ export default {
 .footer {
   display: flex;
   flex-direction: column;
-  
+
   @media (min-width: 1000px) {
     flex-direction: row;
   }
@@ -88,33 +87,33 @@ export default {
   flex-grow: 2;
   display: flex;
   flex-direction: column;
-  
+
   &-title {
     color: var(--clr-neutral-white);
     text-transform: uppercase;
     font-family: var(--ff-accent);
     font-weight: var(--fw-bold);
   }
-  
+
   &-list {
     padding-bottom: 1.5rem;
-    
+
     @media (min-width: 1000px) {
       padding-bottom: 0;
     }
   }
-  
+
   &-item {
     font-size: var(--fs-16pt);
     line-height: 1.8;
     cursor: pointer;
-    
+
     &:hover,
     &:focus {
       color: var(--clr-accent-mellow-apricot);
     }
   }
-  
+
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
@@ -123,27 +122,27 @@ export default {
 
 .social-links {
   flex-grow: 1;
-  
+
   &__list {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    
+
     margin-top: 0;
     margin-bottom: 0;
-    
+
     @media (min-width: 1000px) {
       justify-content: flex-end;
     }
   }
-  
+
   &__item a {
     color: var(--clr-accent-mellow-apricot);
-    
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
       color: var(--clr-neutral-light-gray);
     }
   }
 }
-
 </style>
