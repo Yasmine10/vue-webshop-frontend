@@ -10,11 +10,21 @@
         </button>
       </div>
       <ul class="nav__list" :class="{ 'nav__list--show': isToggled }">
-        <router-link class="nav__item" to="/home">Home</router-link>
-        <router-link class="nav__item" to="/dog">Hond</router-link>
-        <router-link class="nav__item" to="/cat">Kat</router-link>
-        <router-link class="nav__item" to="/rodent">Knaagdier</router-link>
-        <router-link class="nav__item" to="/bird">Vogel</router-link>
+        <router-link class="nav__item" to="/home" active-class="active"
+          >Home</router-link
+        >
+        <router-link class="nav__item" to="/dog" active-class="active"
+          >Hond</router-link
+        >
+        <router-link class="nav__item" to="/cat" active-class="active"
+          >Kat</router-link
+        >
+        <router-link class="nav__item" to="/rodent" active-class="active"
+          >Knaagdier</router-link
+        >
+        <router-link class="nav__item" to="/bird" active-class="active"
+          >Vogel</router-link
+        >
       </ul>
     </nav>
   </div>
@@ -94,7 +104,8 @@ export default {
     font-weight: var(--fw-bold);
 
     &:hover,
-    &:focus {
+    &:focus,
+    .active {
       color: var(--clr-primary-space-cadet);
       font-weight: var(--fw-bold);
     }

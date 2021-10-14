@@ -6,12 +6,29 @@
           <section class="footer__nav--products">
             <h5 class="footer__nav-title">Producten</h5>
             <ul class="footer__nav-list">
-              <li class="footer__nav-item">Hond</li>
-              <li class="footer__nav-item">Kat</li>
-              <li class="footer__nav-item">Knaagdier</li>
-              <li class="footer__nav-item">Vogel</li>
+              <li class="footer__nav-item">
+                <router-link to="/dog" class="footer__nav-link">
+                  Hond
+                </router-link>
+              </li>
+              <li class="footer__nav-item">
+                <router-link to="/cat" class="footer__nav-link">
+                  Kat
+                </router-link>
+              </li>
+              <li class="footer__nav-item">
+                <router-link to="/rodent" class="footer__nav-link">
+                  Knaagdier
+                </router-link>
+              </li>
+              <li class="footer__nav-item">
+                <router-link to="/bird" class="footer__nav-link">
+                  Vogel
+                </router-link>
+              </li>
             </ul>
           </section>
+
           <section class="footer__nav--customer-service">
             <h5 class="footer__nav-title">Klantenservice</h5>
             <ul class="footer__nav-list">
@@ -21,6 +38,7 @@
               <li class="footer__nav-item">Veelgestelde vragen</li>
             </ul>
           </section>
+
           <section class="footer__nav--company">
             <h5 class="footer__nav-title">Bedrijf</h5>
             <ul class="footer__nav-list">
@@ -107,6 +125,16 @@ export default {
     font-size: var(--fs-16pt);
     line-height: 1.8;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: var(--clr-accent-mellow-apricot);
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: var(--clr-neutral-light-gray);
 
     &:hover,
     &:focus {
