@@ -1,13 +1,11 @@
 body {
   font-family: var(--ff-primary);
-  font-size: var(--fs-20pt);
+  font-size: var(--fs-18pt);
   line-height: 1.6;
 }
 
-h5 {
-  font-size: inherit;
-  line-height: 1;
-}
+
+/***** utility classes *****/
 
 .container {
   width: Min(85%, 80rem);
@@ -15,5 +13,73 @@ h5 {
 }
 
 .padding-page {
-  padding-block: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+//.product-view {
+//  display: flex;
+//  gap: 2rem;
+//
+//  &__sidebar {
+//    width: 20%;
+//    flex-grow: 0;
+//    flex-shrink: 0;
+//  }
+//
+//  &__products {
+//    flex-grow: 2;
+//    flex-shrink: 1;
+//  }
+//}
+
+/***** typography styles *****/
+
+h2 {
+  font-family: var(--ff-accent);
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-24pt);
+  text-transform: uppercase;
+  padding-bottom: 1em;
+}
+
+h5 {
+  font-size: inherit;
+  line-height: 1;
+}
+
+p {
+  color: var(--clr-primary-heliotrope-gray);
+}
+
+.product-name {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-20pt);
+  color: var(--clr-primary-independence);
+  line-height: 1.2;
+}
+
+.price {
+  font-weight: var(--fw-semi-bold);
+  line-height: 1;
+  color: var(--clr-primary-space-cadet);
+}
+
+
+/***** button styles *****/
+
+.btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  background-color: var(--clr-primary-space-cadet);
+  color: var(--clr-neutral-white);
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+
+  &:hover {
+    outline: 2px solid var(--clr-primary-space-cadet);
+    background-color: var(--clr-neutral-white);
+    color: var(--clr-primary-space-cadet);
+  }
 }
