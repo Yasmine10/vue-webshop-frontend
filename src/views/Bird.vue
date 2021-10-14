@@ -11,13 +11,13 @@ import ProductsList from "@/components/products/ProductsList";
 export default {
   name: "Bird",
   components: {
-    ProductsList
+    ProductsList,
   },
   data() {
     return {
-      name: "bird"
+      name: "bird",
     };
-  }
+  },
 };
 </script>
 

@@ -17,7 +17,9 @@
       </div>
       <div class="product__buy">
         <p>&euro; {{ product.price }}</p>
-        <button class="btn btn--cart" @click.prevent="buyProduct(product.id)"><PhShoppingCart :size="32" /></button>
+        <button class="btn btn--cart" @click.prevent="buyProduct(product.id)">
+          <PhShoppingCart :size="32" />
+        </button>
       </div>
     </article>
   </div>
@@ -53,7 +55,7 @@ export default {
     },
     buyProduct(productId) {
       console.log(productId);
-    }
+    },
   },
 };
 </script>
@@ -78,7 +80,7 @@ export default {
       outline: 2px solid var(--clr-primary-space-cadet);
     }
   }
-  
+
   &__image {
     cursor: pointer;
   }
