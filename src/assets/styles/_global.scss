@@ -16,6 +16,21 @@ body {
   padding-block: 2rem;
 }
 
+//.product-view {
+//  display: flex;
+//  gap: 2rem;
+//
+//  &__sidebar {
+//    width: 20%;
+//    flex-grow: 0;
+//    flex-shrink: 0;
+//  }
+//
+//  &__products {
+//    flex-grow: 2;
+//    flex-shrink: 1;
+//  }
+//}
 
 /***** typography styles *****/
 
@@ -47,8 +62,7 @@ p {
   text-transform: uppercase;
   padding: 0.5rem 1.5rem;
 
-  &:hover,
-  &:focus {
+  &:hover {
     outline: 2px solid var(--clr-primary-space-cadet);
     background-color: var(--clr-neutral-white);
     color: var(--clr-primary-space-cadet);

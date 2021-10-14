@@ -17,7 +17,7 @@
       </div>
       <div class="product__buy">
         <p>&euro; {{ product.price }}</p>
-        <button class="btn btn--cart" @click.prevent="buyProduct(product.id)">
+        <button class="btn btn--cart" @click.prevent="buyProduct(product)">
           <PhShoppingCart :size="32" />
         </button>
       </div>
@@ -53,8 +53,8 @@ export default {
     viewProduct(productId) {
       this.$router.push("/" + this.name + "/product-id=" + productId);
     },
-    buyProduct(productId) {
-      console.log(productId);
+    buyProduct(product) {
+      this.$store.dispatch("addToCart", { product: product, quantity: 1 });
     },
   },
 };
@@ -64,7 +64,8 @@ export default {
 .product {
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(265px, 100%), 1fr));
+    grid-template-rows: 1fr min-content;
     grid-gap: 1.5rem;
   }
 
