@@ -17,3 +17,19 @@ h5 {
 .padding-page {
   padding-block: 2rem;
 }
+
+.btn {
+  all: unset;
+  display: flex;
+  background-color: var(--clr-primary-space-cadet);
+  color: var(--clr-neutral-white);
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+
+  &:hover,
+  &:focus {
+    outline: 2px solid var(--clr-primary-space-cadet);
+    background-color: var(--clr-neutral-white);
+    color: var(--clr-primary-space-cadet);
+  }
+}
