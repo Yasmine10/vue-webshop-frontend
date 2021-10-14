@@ -1,8 +1,8 @@
 <template>
   <div class="product-view container padding-page">
-<!--    <div>-->
-<!--      <ProductsSidebar :name="name" />-->
-<!--    </div>-->
+    <!--    <div>-->
+    <!--      <ProductsSidebar :name="name" />-->
+    <!--    </div>-->
     <div>
       <h2>Hond</h2>
       <ProductsList :name="name" />

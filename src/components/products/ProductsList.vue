@@ -12,11 +12,11 @@
         @click.prevent="viewProduct(product.id)"
       />
       <div class="product__info">
-        <h3>{{ product.name }}</h3>
+        <h3 class="product-name">{{ product.name }}</h3>
         <small>{{ product.brand }}</small>
       </div>
       <div class="product__buy">
-        <p>&euro; {{ product.price }}</p>
+        <p class="price">&euro; {{ product.price }}</p>
         <button class="btn btn--cart" @click.prevent="buyProduct(product)">
           <PhShoppingCart :size="32" />
         </button>
@@ -87,12 +87,7 @@ export default {
   }
 
   &__info {
-    //background-color: aqua;
-    h3 {
-      font-family: var(--ff-accent);
-      font-size: var(--fs-20pt);
-      color: var(--clr-primary-independence);
-      line-height: 1.2;
+    .product-name {
       padding-top: 1em;
     }
 
@@ -106,11 +101,8 @@ export default {
     justify-content: space-between;
     align-items: center;
 
-    p {
+    .price {
       font-size: var(--fs-30pt);
-      font-weight: var(--fw-semi-bold);
-      line-height: 1;
-      color: var(--clr-primary-space-cadet);
     }
   }
 }

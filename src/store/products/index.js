@@ -56,7 +56,6 @@ const products = {
       axios
         .get(process.env.VUE_APP_API_URL + "product/" + payload.id)
         .then((response) => {
-          console.log(response.data);
           commit("getProductById", response.data);
         })
         .catch((error) => console.log(error));

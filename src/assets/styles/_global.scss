@@ -13,7 +13,8 @@ body {
 }
 
 .padding-page {
-  padding-block: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
 }
 
 //.product-view {
@@ -51,11 +52,25 @@ p {
   color: var(--clr-primary-heliotrope-gray);
 }
 
+.product-name {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-20pt);
+  color: var(--clr-primary-independence);
+  line-height: 1.2;
+}
+
+.price {
+  font-weight: var(--fw-semi-bold);
+  line-height: 1;
+  color: var(--clr-primary-space-cadet);
+}
+
 
 /***** button styles *****/
 
 .btn {
   all: unset;
+  cursor: pointer;
   display: flex;
   background-color: var(--clr-primary-space-cadet);
   color: var(--clr-neutral-white);

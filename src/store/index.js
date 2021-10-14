@@ -8,6 +8,6 @@ export default createStore({
   actions: {},
   modules: {
     products,
-    cart
+    cart,
   },
 });
