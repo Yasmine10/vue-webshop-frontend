@@ -1,13 +1,11 @@
 body {
   font-family: var(--ff-primary);
-  font-size: var(--fs-20pt);
+  font-size: var(--fs-18pt);
   line-height: 1.6;
 }
 
-h5 {
-  font-size: inherit;
-  line-height: 1;
-}
+
+/***** utility classes *****/
 
 .container {
   width: Min(85%, 80rem);
@@ -17,6 +15,29 @@ h5 {
 .padding-page {
   padding-block: 2rem;
 }
+
+
+/***** typography styles *****/
+
+h2 {
+  font-family: var(--ff-accent);
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-24pt);
+  text-transform: uppercase;
+  padding-bottom: 1em;
+}
+
+h5 {
+  font-size: inherit;
+  line-height: 1;
+}
+
+p {
+  color: var(--clr-primary-heliotrope-gray);
+}
+
+
+/***** button styles *****/
 
 .btn {
   all: unset;

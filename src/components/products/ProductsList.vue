@@ -4,12 +4,12 @@
       class="product__item"
       v-for="product in products"
       :key="product.id"
-      @click="viewProduct(product.id)"
     >
       <img
         class="product__image"
         :src="getImagePath(product.imageUrl)"
         :alt="product.name"
+        @click.prevent="viewProduct(product.id)"
       />
       <div class="product__info">
         <h3>{{ product.name }}</h3>
@@ -17,7 +17,7 @@
       </div>
       <div class="product__buy">
         <p>&euro; {{ product.price }}</p>
-        <button class="btn btn--cart"><PhShoppingCart :size="32" /></button>
+        <button class="btn btn--cart" @click.prevent="buyProduct(product.id)"><PhShoppingCart :size="32" /></button>
       </div>
     </article>
   </div>
@@ -51,6 +51,9 @@ export default {
     viewProduct(productId) {
       this.$router.push("/" + this.name + "/product-id=" + productId);
     },
+    buyProduct(productId) {
+      console.log(productId);
+    }
   },
 };
 </script>
@@ -74,6 +77,10 @@ export default {
     &:focus {
       outline: 2px solid var(--clr-primary-space-cadet);
     }
+  }
+  
+  &__image {
+    cursor: pointer;
   }
 
   &__info {
