@@ -43,7 +43,7 @@ header {
 
     &:nth-child(2):hover,
     &:nth-child(2):focus {
-      color: var(--clr-accent-mellow-apricot);
+      color: var(--clr-primary-heliotrope-gray);
     }
   }
 

@@ -104,6 +104,10 @@ export default {
     .price {
       font-size: var(--fs-30pt);
     }
+
+    .btn--cart {
+      display: flex;
+    }
   }
 }
 </style>

@@ -108,15 +108,17 @@ export default {
       this.$router.back();
     },
     buyProduct() {
-      this.$store.dispatch("addToCart", { product: this.product, quantity: this.quantityData.selectedQuantity });
+      this.$store.dispatch("addToCart", {
+        product: this.product,
+        quantity: this.quantityData.selectedQuantity,
+      });
     },
-  }
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .product {
-
   .go-back-link {
     display: flex;
     align-items: center;
@@ -138,7 +140,7 @@ export default {
     @media (min-width: 768px) {
       flex-direction: row;
     }
-    
+
     @media (min-width: 1000px) {
       gap: 6rem;
     }
@@ -149,8 +151,6 @@ export default {
   }
 
   &__content {
-    
-    
     .in-stock {
       display: flex;
       align-items: center;
@@ -162,11 +162,11 @@ export default {
         margin-left: 0.5em;
       }
     }
-    
+
     @media (min-width: 768px) {
       align-self: center;
     }
-    
+
     @media (min-width: 1200px) {
       h3 {
         font-size: var(--fs-30pt);
@@ -182,7 +182,7 @@ export default {
     .icon {
       margin-right: 0.75em;
     }
-  
+
     @media (min-width: 400px) {
       margin-block: 3rem;
       justify-content: flex-start;
@@ -220,19 +220,19 @@ export default {
   &__description-text {
     font-size: var(--fs-16pt);
   }
-  
+
   &__filters {
     font-size: var(--fs-16pt);
     margin-top: 2em;
-    
-    
-    .category, .animal {
+
+    .category,
+    .animal {
       display: grid;
       grid-template-columns: 5rem auto;
       align-items: center;
       grid-gap: 1.5rem;
     }
-    
+
     h5 {
       text-transform: uppercase;
     }
