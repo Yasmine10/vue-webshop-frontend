@@ -2,8 +2,7 @@
   <header>
     <div class="header__content container">
       <router-link to="/home" class="header__logo header__link">
-        <ph-paw-print size="64" />
-        <h1>Pet world</h1>
+        <img src="../../assets/images/logo.png" alt="Pet World" />
       </router-link>
       <router-link to="/cart" class="header__link">
         <ph-shopping-cart size="32" />
@@ -13,12 +12,13 @@
 </template>
 
 <script>
-import { PhPawPrint, PhShoppingCart } from "phosphor-vue";
+import { PhShoppingCart } from "phosphor-vue";
+import { image } from "@/mixins/image";
 
 export default {
   name: "Header",
+  mixins: [image],
   components: {
-    PhPawPrint,
     PhShoppingCart,
   },
 };
@@ -34,12 +34,18 @@ header {
   &__content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    padding-block: 0.5rem;
   }
 
   &__link {
     text-decoration: none;
     color: var(--clr-primary-space-cadet);
+
+    &:nth-child(2),
+    &:nth-child(2) {
+      padding-top: 0.5em;
+    }
 
     &:nth-child(2):hover,
     &:nth-child(2):focus {
@@ -49,14 +55,8 @@ header {
 
   &__logo {
     display: flex;
-    align-items: flex-end;
-    gap: 0.5em;
-    h1 {
-      font-family: var(--ff-logo);
-      font-size: var(--fs-30pt);
-      font-weight: 600;
-      text-transform: capitalize;
-    }
+    width: 12rem;
+    height: 100%;
   }
 }
 </style>
