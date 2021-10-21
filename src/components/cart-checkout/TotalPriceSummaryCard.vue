@@ -15,7 +15,7 @@
     </div>
     <div class="summary__total">
       <h5>Totaal</h5>
-      <p>&euro; {{ subtotalCartItems }}</p>
+      <p>&euro; {{ deliveryCosts ? totalPriceOrder : subtotalCartItems }}</p>
     </div>
     <a class="btn btn--next" @click.prevent="checkout"
       >Doorgaan met bestellen</a
@@ -49,6 +49,9 @@ export default {
     taxes() {
       return this.$store.getters.taxes;
     },
+    totalPriceOrder() {
+      return this.$store.getters.total;
+    }
   },
   watch: {
     deliveryCosts() {},

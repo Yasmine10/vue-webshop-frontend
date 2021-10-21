@@ -6,5 +6,8 @@
 export default {
   name: "Home",
   components: {},
+  created() {
+    this.$store.dispatch("isCheckoutSuccess", false);
+  }
 };
 </script>

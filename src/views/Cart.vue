@@ -1,7 +1,10 @@
 <template>
   <div class="cart container padding-page">
     <h2>Winkelwagen</h2>
-    <div>
+    <div v-if="totalCartItems === 0">
+      <p>Nog geen items in winkelmandje</p>
+    </div>
+    <div v-else>
       <ul class="cart__list">
         <li class="cart__item--header">
           <p></p>
@@ -28,8 +31,10 @@
           </a>
         </li>
       </ul>
+  
+      <TotalPriceSummaryCard name="cart" :title="`${totalCartItems} ${title}`" />
     </div>
-    <TotalPriceSummaryCard name="cart" :title="`${totalCartItems} ${title}`" />
+    
   </div>
 </template>
 

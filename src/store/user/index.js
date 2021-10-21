@@ -28,7 +28,7 @@ const user = {
           user: user.data,
         }
       );
-      commit("saveUserInfo", { user: user, address: address });
+      commit("saveUserInfo", { user: user.data, address: address.data });
     },
   },
   getters: {},

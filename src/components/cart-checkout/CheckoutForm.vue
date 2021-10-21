@@ -74,7 +74,7 @@
               :class="{ 'is-valid': v$.address.street.$errors.length > 0 }"
             />
             <div
-              v-for="(error, index) of v$.personalInfo.email.$errors"
+              v-for="(error, index) of v$.address.street.$errors"
               :key="index"
               class="error-group"
             >
@@ -312,25 +312,33 @@ export default {
     async addUserInfo() {
       console.log("ready to checkout");
 
+      window.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
+
       const isFormCorrect = await this.v$.$validate();
       console.log(isFormCorrect);
       if (!isFormCorrect) {
         return;
       }
 
-      this.$store
-        .dispatch("saveUserInfo", {
-          firstname: this.personalInfo.firstname,
-          lastname: this.personalInfo.lastname,
-          email: this.personalInfo.email,
-          street: this.address.street,
-          streetnumber: this.address.streetnumber,
-          postalcode: this.address.postalcode,
-          city: this.address.city,
-        })
-        .then(() => {
-          this.$store.dispatch("isCheckoutSuccess", true);
-        });
+      await this.$store.dispatch("saveUserInfo", {
+        firstname: this.personalInfo.firstname,
+        lastname: this.personalInfo.lastname,
+        email: this.personalInfo.email,
+        street: this.address.street,
+        streetnumber: this.address.streetnumber,
+        postalcode: this.address.postalcode,
+        city: this.address.city,
+      });
+
+      await this.$store.dispatch("saveOrder", {
+        user: this.$store.state.user.user,
+        address: this.$store.state.user.address,
+      });
+      await this.$store.dispatch("isCheckoutSuccess", true);
+      await this.$store.dispatch("resetCart");
 
       console.log("ok to checkout");
     },

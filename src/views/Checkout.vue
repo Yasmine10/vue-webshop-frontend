@@ -23,7 +23,7 @@
     <!--        <p class="total__item&#45;&#45;price">&euro; {{ item.product.price }}</p>-->
     <!--      </div>-->
     <!--    </section>-->
-    <CheckoutSuccessModal v-model="showModal" />
+    <CheckoutSuccessModal :showModal="checkoutSuccess" />
   </div>
 </template>
 
@@ -43,12 +43,14 @@ export default {
   data() {
     return {
       title: "Overzicht bestelling",
-      showModal: true,
     }
+  },
+  created() {
+    this.$store.disp
   },
   computed: {
     checkoutSuccess() {
-      return this.$store.state.cart.isCheckoutSuccess;
+      return this.$store.state.cart.checkoutSuccess;
     }
   },
   watch: {
@@ -58,12 +60,7 @@ export default {
     goBack() {
       this.$router.back();
     },
-    openCheckoutModal() {
-      if(this.checkoutSuccess === true) {
-        this.showModal = !this.showModal();
-      }
-    }
-  }
+  },
 };
 </script>
 
