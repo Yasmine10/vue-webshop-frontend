@@ -29,36 +29,26 @@
         </li>
       </ul>
     </div>
-    <div class="cart__total-container">
-      <h5 class="cart__title">{{ totalCartItems }} product(en)</h5>
-      <div class="cart__subtotal">
-        <p>Subtotaal</p>
-        <p>&euro; {{ subtotalCartItems }}</p>
-      </div>
-      <div class="cart__taxes">
-        <p>BTW ({{ tax }}%)</p>
-        <p>&euro; {{ taxes }}</p>
-      </div>
-      <div class="cart__total">
-        <h5>Totaal</h5>
-        <p>&euro; {{ subtotalCartItems }}</p>
-      </div>
-      <a class="btn btn--order" @click.prevent="checkout"
-        >Doorgaan met bestellen</a
-      >
-    </div>
+    <TotalPriceSummaryCard name="cart" :title="`${totalCartItems} ${title}`" />
   </div>
 </template>
 
 <script>
 import { PhTrash } from "phosphor-vue";
 import { image } from "@/mixins/image";
+import TotalPriceSummaryCard from "@/components/cart-checkout/TotalPriceSummaryCard";
 
 export default {
   name: "Cart",
   mixins: [image],
   components: {
+    TotalPriceSummaryCard,
     PhTrash,
+  },
+  data() {
+    return {
+      title: "product(en)",
+    };
   },
   computed: {
     cartItems() {
@@ -67,22 +57,10 @@ export default {
     totalCartItems() {
       return this.$store.getters.totalCartItems;
     },
-    subtotalCartItems() {
-      return this.$store.getters.subtotalCartItems;
-    },
-    tax() {
-      return this.$store.state.cart.tax * 100;
-    },
-    taxes() {
-      return this.$store.getters.taxes;
-    },
   },
   methods: {
     removeProduct(productId) {
       this.$store.dispatch("removeFromCart", { id: productId });
-    },
-    checkout() {
-      this.$router.push("/checkout");
     },
   },
 };
@@ -90,9 +68,6 @@ export default {
 
 <style scoped lang="scss">
 .cart {
-  &__list {
-  }
-  
   &__item--header {
     display: none;
   }
@@ -105,8 +80,6 @@ export default {
       "image ... name name name"
       "image ... brand brand brand"
       "image ... quantity price remove";
-    //align-items: center;
-    //grid-gap: 0.5rem;
   }
 
   &__item {
@@ -155,51 +128,6 @@ export default {
     &:hover,
     &:focus {
       color: var(--clr-primary-heliotrope-gray);
-    }
-  }
-
-  &__total-container {
-    background-color: var(--clr-primary-isabelline);
-    padding: 1.5em;
-    margin-top: 3rem;
-
-    .btn--order {
-      padding: 0.5rem 1rem;
-      margin-top: 3rem;
-    }
-
-    p {
-      color: var(--clr-primary-space-cadet);
-    }
-  }
-
-  &__title {
-    border-bottom: 1px solid var(--clr-primary-independence);
-    padding-bottom: 0.75em;
-    margin-bottom: 0.75em;
-  }
-
-  &__subtotal,
-  &__taxes,
-  &__total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__subtotal {
-    margin-bottom: 0.5em;
-  }
-
-  &__total {
-    text-transform: uppercase;
-    border-top: 1px solid var(--clr-primary-independence);
-    padding-top: 0.75em;
-    margin-top: 0.75em;
-
-    p {
-      color: var(--clr-primary-space-cadet);
-      font-weight: var(--fw-bold);
     }
   }
 }

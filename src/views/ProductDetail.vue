@@ -1,7 +1,7 @@
 <template>
   <div class="product container padding-page">
     <a href="" class="go-back-link" @click.prevent="goBack"
-      ><ph-caret-left class="icon" :size="20" />Terug naar overzicht</a
+      >Terug naar overzicht</a
     >
     <div class="product__main-info">
       <div class="product__slider">
@@ -63,7 +63,6 @@
 
 <script>
 import {
-  PhCaretLeft,
   PhCircleWavyCheck,
   PhCheck,
   PhShoppingCart,
@@ -74,7 +73,6 @@ export default {
   name: "ProductDetail",
   mixins: [image],
   components: {
-    PhCaretLeft,
     PhCircleWavyCheck,
     PhCheck,
     PhShoppingCart,
@@ -125,10 +123,6 @@ export default {
     text-decoration: none;
     color: var(--clr-primary-heliotrope-gray);
     font-size: var(--fs-16pt);
-
-    .icon {
-      margin-right: 0.5em;
-    }
   }
 
   &__main-info {

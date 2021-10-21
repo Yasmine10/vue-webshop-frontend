@@ -41,6 +41,15 @@ h2 {
   font-size: var(--fs-24pt);
   text-transform: uppercase;
   padding-bottom: 1em;
+  color: var(--clr-primary-space-cadet);
+}
+
+h3 {
+  color: var(--clr-primary-independence);
+  font-family: var(--ff-accent);
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-18pt);
+  text-transform: uppercase;
 }
 
 h5 {
@@ -83,4 +92,36 @@ p {
     background-color: var(--clr-neutral-white);
     color: var(--clr-primary-space-cadet);
   }
+}
+
+/***** form component styles *****/
+
+label {
+  font-size: var(--fs-16pt);
+  margin-top: 1em;
+  padding-bottom: 0.25em;
+}
+
+input[type=text], input[type=email] {
+  // all: unset;
+  border: 1px solid var(--clr-neutral-light-gray);
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+  font-size: var(--fs-14pt);
+  color: var(--clr-primary-independence);
+
+  &:focus,
+  &:focus-within {
+    outline: 2px solid var(--clr-primary-silver-pink);
+    caret-color: var(--clr-primary-silver-pink);
+  }
+}
+
+.is-valid {
+  outline: 1px solid var(--clr-accent-vermilion);
+  box-shadow: 0 0 3px var(--clr-accent-vermilion);
+}
+
+.invalid-feedback {
+  color: var(--clr-accent-vermilion);
 }
