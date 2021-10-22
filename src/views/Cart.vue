@@ -4,7 +4,7 @@
     <div v-if="totalCartItems === 0">
       <p>Nog geen items in winkelmandje</p>
     </div>
-    <div v-else>
+    <div v-else class="cart__container">
       <ul class="cart__list">
         <li class="cart__item--header">
           <p></p>
@@ -13,7 +13,7 @@
           <p>Stuks</p>
           <p></p>
         </li>
-        <li class="cart__item" v-for="(item, index) in cartItems" :key="index">
+        <li v-for="(item, index) in cartItems" :key="index" class="cart__item">
           <img
             class="cart__item--image"
             :src="getImagePath(item.product.imageUrl)"
@@ -31,10 +31,13 @@
           </a>
         </li>
       </ul>
-  
-      <TotalPriceSummaryCard name="cart" :title="`${totalCartItems} ${title}`" />
+
+      <TotalPriceSummaryCard
+        class="cart__summary"
+        name="cart"
+        :title="`${totalCartItems} ${title}`"
+      />
     </div>
-    
   </div>
 </template>
 
@@ -45,11 +48,11 @@ import TotalPriceSummaryCard from "@/components/cart-checkout/TotalPriceSummaryC
 
 export default {
   name: "Cart",
-  mixins: [image],
   components: {
     TotalPriceSummaryCard,
     PhTrash,
   },
+  mixins: [image],
   data() {
     return {
       title: "product(en)",
@@ -73,6 +76,33 @@ export default {
 
 <style scoped lang="scss">
 .cart {
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__list {
+      flex: 2;
+    }
+
+    &__summary {
+      flex: 1;
+      margin-top: 0;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    &__list {
+      flex: 3;
+    }
+  }
+
   &__item--header {
     display: none;
   }
@@ -85,11 +115,21 @@ export default {
       "image ... name name name"
       "image ... brand brand brand"
       "image ... quantity price remove";
-  }
 
-  &__item {
     border-top: 1px solid var(--clr-primary-heliotrope-gray);
     padding-bottom: 0.5rem;
+
+    @media (min-width: 768px) {
+      padding-block: 1rem;
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: 1fr 0.5rem 2fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1.5rem;
+      grid-template-areas:
+        "image ... name price quantity remove"
+        "image ... brand price quantity remove";
+    }
   }
 
   &__item:last-child {
@@ -100,6 +140,11 @@ export default {
     grid-area: image;
     width: 80%;
     align-self: center;
+
+    @media (min-width: 1200px) {
+      width: 4rem;
+      margin-left: 1rem;
+    }
   }
   &__item--name {
     grid-area: name;
@@ -108,6 +153,10 @@ export default {
     font-size: var(--fs-16pt);
     line-height: 1.1;
     padding-top: 0.75rem;
+
+    @media (min-width: 1200px) {
+      padding-top: 0;
+    }
   }
   &__item--brand {
     grid-area: brand;
@@ -116,12 +165,22 @@ export default {
   }
   &__item--quantity {
     grid-area: quantity;
+
+    @media (min-width: 1200px) {
+      justify-self: flex-end;
+      align-self: center;
+    }
   }
 
   &__item--price {
     grid-area: price;
     justify-self: flex-end;
     color: var(--clr-primary-space-cadet);
+
+    @media (min-width: 1200px) {
+      justify-self: flex-end;
+      align-self: center;
+    }
   }
 
   &__item--remove-btn {
@@ -133,6 +192,11 @@ export default {
     &:hover,
     &:focus {
       color: var(--clr-primary-heliotrope-gray);
+    }
+
+    @media (min-width: 1200px) {
+      padding-top: 0.5rem;
+      align-self: center;
     }
   }
 }
