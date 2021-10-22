@@ -93,7 +93,7 @@ export default {
 
     &__summary {
       flex: 1;
-      
+
       & > * {
         margin-top: 0 !important;
       }

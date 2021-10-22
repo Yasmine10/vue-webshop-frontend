@@ -438,11 +438,11 @@ export default {
       grid-gap: 2rem;
       grid-auto-flow: row dense;
     }
-    
+
     &__summary {
       margin-top: 0;
     }
-    
+
     &__personal-info,
     &__address,
     &__delivery,
