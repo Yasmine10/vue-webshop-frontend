@@ -15,7 +15,7 @@ export default {
 
 <style scoped lang="scss">
 .badge {
-  background-color: var(--clr-primary-silver-pink);
+  background-color: var(--clr-primary-isabelline);
   color: var(--clr-primary-space-cadet);
   font-weight: bold;
   font-size: var(--fs-14pt);

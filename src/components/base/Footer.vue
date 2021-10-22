@@ -110,7 +110,7 @@ export default {
     color: var(--clr-neutral-white);
     text-transform: uppercase;
     font-family: var(--ff-accent);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-semi-bold);
   }
 
   &-list {
@@ -128,7 +128,7 @@ export default {
 
     &:hover,
     &:focus {
-      color: var(--clr-accent-mellow-apricot);
+      color: var(--clr-primary-silver-pink);
     }
   }
 
@@ -138,7 +138,7 @@ export default {
 
     &:hover,
     &:focus {
-      color: var(--clr-accent-mellow-apricot);
+      color: var(--clr-primary-silver-pink);
     }
   }
 
@@ -165,7 +165,7 @@ export default {
   }
 
   &__item a {
-    color: var(--clr-accent-mellow-apricot);
+    color: var(--clr-primary-silver-pink);
 
     &:hover,
     &:focus {

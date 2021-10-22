@@ -31,12 +31,12 @@
           </a>
         </li>
       </ul>
-
-      <TotalPriceSummaryCard
-        class="cart__summary"
-        name="cart"
-        :title="`${totalCartItems} ${title}`"
-      />
+      <div class="cart__summary">
+        <TotalPriceSummaryCard
+          name="cart"
+          :title="`${totalCartItems} ${title}`"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -93,7 +93,10 @@ export default {
 
     &__summary {
       flex: 1;
-      margin-top: 0;
+      
+      & > * {
+        margin-top: 0 !important;
+      }
     }
   }
 

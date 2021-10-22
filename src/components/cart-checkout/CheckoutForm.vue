@@ -406,7 +406,9 @@ export default {
     }
 
     &__summary {
-      margin-top: 0;
+      & > * {
+        margin-top: 0 !important;
+      }
     }
   }
 }
