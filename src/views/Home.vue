@@ -3,7 +3,11 @@
     <div class="image-container">
       <div class="home__header container">
         <h1>Welkom!</h1>
-        <img class="home-image" src="../assets/images/home-banner2.png" alt="dogs in a row" />
+        <img
+          class="home-image"
+          src="../assets/images/home-banner2.png"
+          alt="dogs in a row"
+        />
       </div>
     </div>
     <div class="container">
@@ -46,9 +50,8 @@ export default {
 
 .home {
   &__header {
-  
   }
-  
+
   h3 {
     text-align: center;
     padding-bottom: 1em;
@@ -64,7 +67,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  
+
   @media (min-width: 768px) {
     flex-direction: row;
   }

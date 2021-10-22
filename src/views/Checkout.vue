@@ -4,7 +4,7 @@
       >Terug naar overzicht</a
     >
     <h2>Checkout</h2>
-    
+
     <CheckoutForm :title="title" />
     <!--    <section class="checkout__total-container">-->
     <!--      <div-->
@@ -23,7 +23,7 @@
     <!--        <p class="total__item&#45;&#45;price">&euro; {{ item.product.price }}</p>-->
     <!--      </div>-->
     <!--    </section>-->
-    <CheckoutSuccessModal :showModal="checkoutSuccess" />
+    <CheckoutSuccessModal :show-modal="checkoutSuccess" />
   </div>
 </template>
 
@@ -35,26 +35,26 @@ import CheckoutSuccessModal from "@/components/cart-checkout/CheckoutSuccessModa
 
 export default {
   name: "Checkout",
-  mixins: [image],
   components: {
     CheckoutSuccessModal,
     CheckoutForm,
   },
+  mixins: [image],
   data() {
     return {
       title: "Overzicht bestelling",
-    }
-  },
-  created() {
-    this.$store.disp
+    };
   },
   computed: {
     checkoutSuccess() {
       return this.$store.state.cart.checkoutSuccess;
-    }
+    },
   },
   watch: {
-    checkoutSuccess(){}
+    checkoutSuccess() {},
+  },
+  created() {
+    this.$store.disp;
   },
   methods: {
     goBack() {
@@ -65,7 +65,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 .go-back-link {
   display: flex;
   align-items: center;
