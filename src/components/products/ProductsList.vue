@@ -1,9 +1,9 @@
 <template>
   <div class="product__list">
     <article
-      class="product__item"
       v-for="product in products"
       :key="product.id"
+      class="product__item"
     >
       <img
         class="product__image"
@@ -12,11 +12,11 @@
         @click.prevent="viewProduct(product.id)"
       />
       <div class="product__info">
-        <h3 class="product-name">{{ product.name }}</h3>
+        <h5 class="product__name">{{ product.name }}</h5>
         <small>{{ product.brand }}</small>
       </div>
       <div class="product__buy">
-        <p class="price">&euro; {{ product.price }}</p>
+        <h3 class="price">&euro; {{ product.price }}</h3>
         <button class="btn btn--cart" @click.prevent="buyProduct(product)">
           <PhShoppingCart :size="32" />
         </button>
@@ -31,23 +31,23 @@ import { image } from "@/mixins/image";
 
 export default {
   name: "ProductsList",
+  components: {
+    PhShoppingCart,
+  },
+  mixins: [image],
   props: {
     name: {
       required: true,
       type: String,
     },
   },
-  mixins: [image],
-  components: {
-    PhShoppingCart,
-  },
-  created() {
-    this.$store.dispatch("getAllProductsByAnimal", { name: this.name });
-  },
   computed: {
     products() {
       return this.$store.state.products.products;
     },
+  },
+  created() {
+    this.$store.dispatch("getAllProductsByAnimal", { name: this.name });
   },
   methods: {
     viewProduct(productId) {
@@ -64,14 +64,14 @@ export default {
 .product {
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(265px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
     grid-template-rows: 1fr min-content;
     grid-gap: 1.5rem;
   }
 
   &__item {
     padding: 1.5em;
-    box-shadow: 0 0 20px var(--clr-neutral-light-gray);
+    box-shadow: 0 0 20px var(--clr-neutral-platinum);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 5fr 2fr 1fr;
@@ -87,13 +87,14 @@ export default {
   }
 
   &__info {
-    .product-name {
-      padding-top: 1em;
-    }
-
     small {
       color: var(--clr-primary-heliotrope-gray);
     }
+  }
+
+  &__name {
+    text-transform: inherit;
+    padding-top: 0.5em;
   }
 
   &__buy {
@@ -102,7 +103,11 @@ export default {
     align-items: center;
 
     .price {
-      font-size: var(--fs-30pt);
+      font-size: 1.5rem;
+    }
+
+    .btn--cart {
+      display: flex;
     }
   }
 }

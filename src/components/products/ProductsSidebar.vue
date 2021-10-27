@@ -1,21 +1,37 @@
 <template>
   <div class="sidebar">
-    <h3>Filter</h3>
+    <button class="btn-primary">Verwijder filters</button>
     <form class="form" @submit.prevent="">
       <section class="sidebar__categories">
-        <h4>Categorieën</h4>
-        <div class="form__group" v-for="category in categories" :key="category.id">
+        <p class="sidebar__title">Categorieën</p>
+        <div
+          class="form__group"
+          v-for="category in categories"
+          :key="category.id"
+        >
           <label :for="'category'[category.id]">
-            <input type="checkbox" :id="'category'[category.id]" name="category" :value="category" v-model="selectedCategories">
+            <input
+              type="checkbox"
+              :id="'category'[category.id]"
+              name="category"
+              :value="category"
+              v-model="selectedCategories"
+            />
             <span>{{ category.name }}</span>
           </label>
         </div>
       </section>
       <section class="sidebar__brands">
-        <h4>Merken</h4>
+        <p class="sidebar__title">Merken</p>
         <div class="form__group" v-for="(brand, index) in brands" :key="index">
           <label :for="'brand_'[index]">
-            <input type="checkbox" :id="'brand_'[index]" name="brand" :value="brand" v-model="selectedBrands">
+            <input
+              type="checkbox"
+              :id="'brand_'[index]"
+              name="brand"
+              :value="brand"
+              v-model="selectedBrands"
+            />
             <span>{{ brand }}</span>
           </label>
         </div>
@@ -36,7 +52,7 @@ export default {
   data() {
     return {
       selectedCategories: [],
-      selectedBrands: []
+      selectedBrands: [],
     };
   },
   created() {
@@ -56,8 +72,16 @@ export default {
 
 <style scoped lang="scss">
 
+@use "sass:map";
+@use "../../assets/styles/utils" as *;
+@use "../../assets/styles/global" as *;
+
 .sidebar {
   //background-color: var(--clr-primary-independence);
+  
+  &__title {
+    font-weight: map.get($fontweights, "bold");
+    color: var(--clr-primary-space-cadet);
+  }
 }
-
 </style>
