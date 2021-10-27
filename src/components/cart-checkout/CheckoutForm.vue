@@ -349,6 +349,22 @@ export default {
         user: this.$store.state.user.user,
         address: this.$store.state.user.address,
       });
+
+      let orderItems = [];
+      this.$store.state.cart.cartItems.map((item) => {
+        orderItems.push({
+          quantity: item.quantity,
+          order: {
+            id: this.$store.state.cart.orderId,
+          },
+          product: {
+            id: item.product.id,
+          },
+        });
+      });
+
+      await this.$store.dispatch("saveOrderItems", orderItems);
+
       await this.$store.dispatch("isCheckoutSuccess", true);
       await this.$store.dispatch("resetCart");
 

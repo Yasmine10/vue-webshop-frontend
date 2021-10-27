@@ -7,7 +7,7 @@ const cart = {
     deliveryCosts: {},
     paymentMethod: "",
     checkoutSuccess: false,
-    order: {},
+    orderId: 0,
   },
   mutations: {
     addToCart(state, payload) {
@@ -45,8 +45,8 @@ const cart = {
     isCheckoutSuccess(state, payload) {
       state.checkoutSuccess = payload;
     },
-    saveOrder(state, payload) {
-      state.order = payload;
+    saveOrderId(state, payload) {
+      state.orderId = Number(payload);
     },
   },
   actions: {
@@ -82,12 +82,16 @@ const cart = {
         { headers: { content: "application/json" } }
       );
       console.log(order.data);
-      // let orderItems = this.cartItems.map((item) => {
-      //   item.order = order.data;
-      // });
-
-      // await axios.post(process.env.VUE_APP_API_URL + "order-item", orderItems, { headers: { content: "application/json" },);
-      commit("saveOrder", order.data);
+      commit("saveOrderId", order.data);
+    },
+    async saveOrderItems({ commit }, payload) {
+      const orderItems = await axios.post(
+        process.env.VUE_APP_API_URL + "order-items",
+        payload,
+        { headers: { content: "application/json" } }
+      );
+      console.log(orderItems);
+      commit("");
     },
   },
   getters: {
