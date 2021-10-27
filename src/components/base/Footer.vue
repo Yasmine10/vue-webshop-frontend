@@ -87,16 +87,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "../../assets/styles/utils" as *;
+
 .footer-wrapper {
   background-color: var(--clr-primary-space-cadet);
-  color: var(--clr-neutral-light-gray);
+  color: var(--clr-neutral-platinum);
 }
 
 .footer {
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 1000px) {
+  @include mq(desktop) {
     flex-direction: row;
   }
 }
@@ -107,42 +109,40 @@ export default {
   flex-direction: column;
 
   &-title {
-    color: var(--clr-neutral-white);
-    text-transform: uppercase;
-    font-family: var(--ff-accent);
-    font-weight: var(--fw-semi-bold);
+    color: var(--clr-primary-isabelline);
   }
 
   &-list {
     padding-bottom: 1.5rem;
 
-    @media (min-width: 1000px) {
+    @include mq(desktop) {
       padding-bottom: 0;
     }
   }
 
   &-item {
-    font-size: var(--fs-16pt);
     line-height: 1.8;
     cursor: pointer;
 
     &:hover,
     &:focus {
       color: var(--clr-primary-silver-pink);
+      text-decoration: underline;
     }
   }
 
   &-link {
     text-decoration: none;
-    color: var(--clr-neutral-light-gray);
+    color: var(--clr-neutral-platinum);
 
     &:hover,
     &:focus {
       color: var(--clr-primary-silver-pink);
+      text-decoration: underline;
     }
   }
 
-  @media (min-width: 768px) {
+  @include mq(tablet) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -159,7 +159,7 @@ export default {
     margin-top: 0;
     margin-bottom: 0;
 
-    @media (min-width: 1000px) {
+    @include mq(desktop) {
       justify-content: flex-end;
     }
   }
@@ -169,7 +169,7 @@ export default {
 
     &:hover,
     &:focus {
-      color: var(--clr-neutral-light-gray);
+      color: var(--clr-neutral-platinum);
     }
   }
 }

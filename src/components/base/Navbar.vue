@@ -53,6 +53,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:map";
+@use "../../assets/styles/global" as *;
+@use "../../assets/styles/utils" as *;
+
 .nav-wrapper {
   background-color: var(--clr-primary-silver-pink);
   width: 100%;
@@ -62,7 +66,7 @@ export default {
   padding-block: 0.5rem;
 
   &__toggle {
-    @media (min-width: 768px) {
+    @include mq(tablet) {
       display: none;
     }
   }
@@ -82,7 +86,7 @@ export default {
     height: 0;
     margin: 0;
 
-    @media (min-width: 768px) {
+    @include mq(tablet) {
       flex-direction: row;
       gap: 3.5em;
       visibility: visible;
@@ -101,13 +105,13 @@ export default {
   &__item {
     text-decoration: none;
     color: var(--clr-neutral-white);
-    font-weight: var(--fw-bold);
+    font-weight: map.get($fontweights, "bold");
 
     &:hover,
     &:focus,
     .active {
       color: var(--clr-primary-space-cadet);
-      font-weight: var(--fw-bold);
+      font-weight: map.get($fontweights, "bold");
     }
   }
 }

@@ -61,9 +61,5 @@ header {
     width: 12rem;
     height: 100%;
   }
-
-  &__cart {
-    position: relative;
-  }
 }
 </style>

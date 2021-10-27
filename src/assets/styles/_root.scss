@@ -1,34 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&family=ZCOOL+KuaiLe&display=swap');
 :root {
   /* colors */
-  --clr-primary-isabelline: hsla(21, 35%, 92%, 1);
-  --clr-primary-silver-pink: hsla(11, 24%, 72%, 1);
-  --clr-primary-heliotrope-gray: hsla(309, 6%, 58%, 1);
-  --clr-primary-independence: hsla(232, 17%, 35%, 1);
-  --clr-primary-space-cadet: hsla(240, 27%, 18%, 1);
+  --clr-primary-isabelline: hsl(21, 35%, 92%);
+  --clr-primary-silver-pink: hsl(11, 24%, 72%);
+  --clr-primary-heliotrope-gray: hsl(309, 6%, 58%);
+  --clr-primary-independence: hsl(232, 17%, 35%);
+  --clr-primary-space-cadet: hsl(240, 27%, 18%);
 
-  --clr-accent-mellow-apricot: hsla(28, 95%, 74%, 1);
-  --clr-accent-ocean-green: hsla(165, 50%, 57%, 1);
-  --clr-accent-vermilion: hsl(4, 92%, 46%);
+  --clr-accent-beau-blue: hsl(207, 56%, 89%);
+  --clr-accent-pine-green: hsl(171, 49%, 31%);
+  --clr-accent-crimson-ua: hsl(351, 67%, 38%);
 
-  --clr-neutral-white: hsla(0, 0%, 100%, 1);
-  --clr-neutral-light-gray: hsla(0, 0%, 85%, 1);
-  --clr-neutral-gray: hsla(0, 0%, 65%, 1);
-  --clr-neutral-black: hsla(0, 0%, 0%, 1);
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  --clr-neutral-platinum: hsl(0, 0%, 90%);
+  --clr-neutral-gainsboro: hsl(0, 0%, 85%);
+  --clr-neutral-silver-chalice: hsl(0, 0%, 66%);
+  --clr-neutral-black: hsl(0, 0%, 0%);
 
   /* font stuff */
   --ff-primary: 'Karla', sans-serif;
   --ff-accent: 'Poppins', sans-serif;
-  --ff-logo: 'ZCOOL KuaiLe', cursive;
+  //--ff-logo: 'ZCOOL KuaiLe', cursive;
 
-  --fw-bold: 700;
-  --fw-semi-bold: 600;
-  --fw-regular: 400;
-
-  --fs-30pt: 1.875rem;
-  --fs-24pt: 1.5rem;
-  --fs-20pt: 1.25rem;
-  --fs-18pt: 1.125rem;
-  --fs-16pt: 1rem;
-  --fs-14pt: 0.875rem;
+  //--fw-bold: 700;
+  //--fw-semi-bold: 600;
+  //--fw-regular: 400;
+  //
+  //--fs-30pt: 1.875rem;
+  //--fs-24pt: 1.5rem;
+  //--fs-20pt: 1.25rem;
+  //--fs-18pt: 1.125rem;
+  //--fs-16pt: 1rem;
+  //--fs-14pt: 0.875rem;
 }
