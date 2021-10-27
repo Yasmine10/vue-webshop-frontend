@@ -2,14 +2,11 @@
   <div v-show="showModal" class="modal">
     <div class="modal__wrapper">
       <div class="modal__container">
-        <div class="modal__header">
-          <!--          <button class="btn&#45;&#45;close" @click.prevent="closeModal"><ph-x class="icon" :size="32" /></button>-->
-        </div>
         <div>
           <ph-shopping-bag class="icon" :size="128" />
-          <h1>Bedankt voor je bestelling!</h1>
+          <h3>Bedankt voor je bestelling!</h3>
           <p>Je krijgt zo snel mogelijk een bestelbevestiging via email.</p>
-          <a class="btn btn-primary" @click.prevent="closeModal"
+          <a class="btn-secondary" @click.prevent="closeModal"
             >Terug naar de startpagina</a
           >
         </div>
@@ -41,9 +38,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@use "../../assets/styles/utils" as *;
+
 .modal {
   position: fixed;
-  top: 7.9rem;
+  top: 0;
   right: 0;
   left: 0;
   bottom: 0;
@@ -58,27 +58,25 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: auto;
-    max-width: 90%;
+    margin: 10rem auto;
+    margin-inline: 1.25rem;
+    //max-width: content-box;
 
-    @media (min-width: 550px) {
-      max-width: 70%;
+    @include mq(tablet) {
+      margin: 10rem auto;
+      width: 30rem;
     }
 
-    @media (min-width: 1000px) {
-      max-width: 60%;
-    }
-
-    @media (min-width: 1400px) {
-      max-width: 40%;
+    @include mq(desktop) {
+      margin: 15rem auto;
+      width: 40rem;
     }
   }
 
   &__container {
     background-color: white;
-    width: 5rem;
+    width: min-content;
     flex: 1;
-    margin: 5rem auto;
     padding: 2rem;
     transition: all 300ms ease;
   }
@@ -88,22 +86,17 @@ export default {
     justify-content: flex-end;
   }
 
-  h1 {
+  h3 {
+    color: var(--clr-primary-independence);
     line-height: 1;
     padding-bottom: 0.5em;
-  }
-
-  .btn--close {
-    background: none;
-    border: none;
-    cursor: pointer;
   }
 
   .icon {
     color: var(--clr-primary-independence);
   }
 
-  .btn-primary {
+  .btn-secondary {
     display: inline-block;
     margin-top: 2em;
     margin-bottom: 1em;

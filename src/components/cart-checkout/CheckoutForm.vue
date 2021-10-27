@@ -3,7 +3,7 @@
     <form class="checkout__form" @submit.prevent="addUserInfo">
       <div class="checkout__container">
         <section class="checkout__personal-info">
-          <h3>Gegevens</h3>
+          <h4>Gegevens</h4>
           <div class="personal-info__content">
             <div class="form-group">
               <label>Voornaam</label>
@@ -65,7 +65,7 @@
           </div>
         </section>
         <section class="checkout__address">
-          <h3>Adres</h3>
+          <h4>Adres</h4>
           <div class="address__content">
             <div class="form-group">
               <label>Straat</label>
@@ -142,7 +142,7 @@
           </div>
         </section>
         <section class="checkout__delivery">
-          <h3>Levering</h3>
+          <h4>Levering</h4>
           <div class="delivery__content">
             <div class="form-group">
               <input
@@ -153,12 +153,14 @@
                 value="normal"
               />
               <label for="normal" class="delivery-label">
-                <ph-truck :size="64" weight="thin" />
-                <div class="">
-                  <h4>Standaard verzending</h4>
-                  <p>3 - 5 werkdagen</p>
-                  <span>€ 4.95</span>
-                </div>
+                <ph-truck
+                  :size="64"
+                  weight="thin"
+                  class="delivery__item-icon"
+                />
+                <p class="delivery__item-title">Standaard verzending</p>
+                <p class="delivery__item-time">3 - 5 werkdagen</p>
+                <span class="delivery__item-price">€ 4.95</span>
               </label>
             </div>
             <div class="form-group">
@@ -170,18 +172,20 @@
                 value="express"
               />
               <label for="express" class="delivery-label">
-                <ph-truck :size="64" weight="thin" />
-                <div class="">
-                  <h4>Express verzending</h4>
-                  <p>1 - 2 werkdagen</p>
-                  <span>€ 8.95</span>
-                </div>
+                <ph-truck
+                  :size="64"
+                  weight="thin"
+                  class="delivery__item-icon"
+                />
+                <p class="delivery__item-title">Express verzending</p>
+                <p class="delivery__item-time">1 - 2 werkdagen</p>
+                <span class="delivery__item-price">€ 8.95</span>
               </label>
             </div>
           </div>
         </section>
         <section class="checkout__payment">
-          <h3>Betaling</h3>
+          <h4>Betaling</h4>
           <div class="payment__content">
             <div class="form-group">
               <input
@@ -192,11 +196,13 @@
                 value="bancontact"
               />
               <label for="bancontact" class="payment-label">
-                <img class="" :src="bancontact" alt="Bancontact" />
-                <div>
-                  <h4>Bancontact</h4>
-                  <p>FREE</p>
-                </div>
+                <img
+                  class="payment__item-image"
+                  :src="bancontact"
+                  alt="Bancontact"
+                />
+                <p class="payment__item-title">Bancontact</p>
+                <p class="payment__item-price">FREE</p>
               </label>
             </div>
             <div class="form-group">
@@ -208,11 +214,9 @@
                 value="paypal"
               />
               <label for="paypal" class="payment-label">
-                <img class="" :src="paypal" alt="Paypal" />
-                <div>
-                  <h4>PayPal</h4>
-                  <p>FREE</p>
-                </div>
+                <img class="payment__item-image" :src="paypal" alt="Paypal" />
+                <p class="payment__item-title">PayPal</p>
+                <p class="payment__item-price">FREE</p>
               </label>
             </div>
           </div>
@@ -355,6 +359,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:map";
+@use "../../assets/styles/global" as *;
+@use "../../assets/styles/utils" as *;
+
 .checkout {
   form {
     display: flex;
@@ -366,6 +374,10 @@ export default {
   &__delivery,
   &__payment {
     margin-bottom: 2rem;
+  }
+
+  h4 {
+    margin-bottom: 1em;
   }
 
   .form-group {
@@ -386,26 +398,82 @@ export default {
 
   .delivery-label,
   .payment-label {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    outline: 1px solid var(--clr-neutral-light-gray);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 1rem;
+    outline: 1px solid var(--clr-neutral-platinum);
     padding: 1rem;
   }
 
-  .payment-label img {
-    width: 25%;
+  .delivery-label {
+    grid-template-rows: 1fr 2rem 2rem;
+    grid-template-areas:
+      "icon title"
+      "icon time"
+      "icon price";
+
+    .delivery {
+      &__item-icon {
+        grid-area: icon;
+        justify-self: center;
+        align-self: center;
+      }
+
+      &__item-title {
+        grid-area: title;
+        font-weight: map.get($fontweights, "semi-bold");
+        color: var(--clr-primary-space-cadet);
+      }
+
+      &__item-time {
+        grid-area: time;
+      }
+
+      &__item-price {
+        grid-area: price;
+      }
+    }
+  }
+
+  .payment-label {
+    grid-template-rows: repeat(2, 2rem);
+    grid-template-areas:
+      "image title"
+      "image price";
+    column-gap: 2rem;
+
+    .payment {
+      &__item-image {
+        grid-area: image;
+        justify-self: center;
+        align-self: center;
+      }
+
+      &__item-title {
+        grid-area: title;
+        align-self: flex-end;
+        font-weight: map.get($fontweights, "semi-bold");
+        color: var(--clr-primary-space-cadet);
+      }
+
+      &__item-price {
+        grid-area: price;
+      }
+    }
   }
 }
 
-@media (min-width: 768px) {
+@include mq(tablet) {
   .checkout {
     form {
       flex-direction: row;
+      flex-basis: 55%;
       gap: 2rem;
     }
 
     &__summary {
+      flex-basis: 40%;
+      flex-shrink: 0;
       & > * {
         margin-top: 0 !important;
       }
@@ -413,22 +481,10 @@ export default {
   }
 }
 
-@media (min-width: 950px) {
+@include mq(desktop) {
   .checkout {
     &__container {
       flex: 2;
-    }
-
-    &__summary {
-      flex: 1;
-      margin-top: 0;
-    }
-  }
-}
-
-@media (min-width: 1200px) {
-  .checkout {
-    &__container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1.5fr;
@@ -440,6 +496,7 @@ export default {
     }
 
     &__summary {
+      flex: 1;
       margin-top: 0;
     }
 
@@ -459,12 +516,10 @@ export default {
     }
     &__delivery {
       grid-area: delivery;
-      //margin-left: 2rem;
     }
 
     &__payment {
       grid-area: payment;
-      //margin-left: 2rem;
     }
   }
 }

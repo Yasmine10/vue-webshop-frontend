@@ -3,32 +3,13 @@
     <a href="" class="go-back-link" @click.prevent="goBack"
       >Terug naar overzicht</a
     >
-    <h2>Checkout</h2>
-
+    <h3>Checkout</h3>
     <CheckoutForm :title="title" />
-    <!--    <section class="checkout__total-container">-->
-    <!--      <div-->
-    <!--        class="total__order-items"-->
-    <!--        v-for="(item, index) in cartItems"-->
-    <!--        :key="index"-->
-    <!--      >-->
-    <!--        <img-->
-    <!--          class="total__item&#45;&#45;image"-->
-    <!--          :src="getImagePath(item.product.imageUrl)"-->
-    <!--          :alt="item.product.name"-->
-    <!--        />-->
-    <!--        <h4 class="total__item&#45;&#45;name">{{ item.product.name }}</h4>-->
-    <!--        <small class="total__item&#45;&#45;brand">{{ item.product.brand }}</small>-->
-    <!--        <p class="total__item&#45;&#45;quantity">Aantal: {{ item.quantity }}</p>-->
-    <!--        <p class="total__item&#45;&#45;price">&euro; {{ item.product.price }}</p>-->
-    <!--      </div>-->
-    <!--    </section>-->
     <CheckoutSuccessModal :show-modal="checkoutSuccess" />
   </div>
 </template>
 
 <script>
-import { image } from "@/mixins/image";
 
 import CheckoutForm from "@/components/cart-checkout/CheckoutForm";
 import CheckoutSuccessModal from "@/components/cart-checkout/CheckoutSuccessModal";
@@ -39,7 +20,6 @@ export default {
     CheckoutSuccessModal,
     CheckoutForm,
   },
-  mixins: [image],
   data() {
     return {
       title: "Overzicht bestelling",
@@ -73,8 +53,9 @@ export default {
   font-size: var(--fs-16pt);
 }
 
-h2 {
+h3 {
   padding-top: 1em;
+  padding-bottom: 1.25em;
 }
 
 //&__total-container {
@@ -92,16 +73,7 @@ h2 {
 //  }
 //}
 
-.total__order-items {
-  display: grid;
-  grid-template-columns: 1fr 0.5rem 1fr 1fr;
-  grid-template-rows: 1fr 1.5rem 1.5rem;
-  grid-template-areas:
-    "image ... name name"
-    "image ... brand brand"
-    "image ... quantity price ";
-  margin-bottom: 1rem;
-}
+
 
 .total {
   &__item {
@@ -109,9 +81,7 @@ h2 {
     padding-bottom: 1rem;
   }
 
-  &__item:not(:last-of-type) {
-    margin-bottom: 1rem;
-  }
+  
 
   &__item--image {
     grid-area: image;

@@ -1,6 +1,6 @@
 <template>
   <div class="cart container padding-page">
-    <h2>Winkelwagen</h2>
+    <h3>Winkelwagen</h3>
     <div v-if="totalCartItems === 0">
       <p>Nog geen items in winkelmandje</p>
     </div>
@@ -19,7 +19,7 @@
             :src="getImagePath(item.product.imageUrl)"
             :alt="item.product.name"
           />
-          <h4 class="cart__item--name">{{ item.product.name }}</h4>
+          <p class="cart__item--name">{{ item.product.name }}</p>
           <small class="cart__item--brand">{{ item.product.brand }}</small>
           <p class="cart__item--quantity">{{ item.quantity }}</p>
           <p class="cart__item--price">&euro; {{ item.product.price }}</p>
@@ -75,18 +75,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@use "../assets/styles/utils" as *;
+
 .cart {
+  h3 {
+    padding-bottom: 1em;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 768px) {
+    @include mq(tablet) {
       flex-direction: row;
       gap: 2rem;
     }
   }
 
-  @media (min-width: 768px) {
+  @include mq(tablet) {
     &__list {
       flex: 2;
     }
@@ -100,7 +107,7 @@ export default {
     }
   }
 
-  @media (min-width: 1200px) {
+  @include mq(desktop) {
     &__list {
       flex: 3;
     }
@@ -122,11 +129,11 @@ export default {
     border-top: 1px solid var(--clr-primary-heliotrope-gray);
     padding-bottom: 0.5rem;
 
-    @media (min-width: 768px) {
+    @include mq(tablet) {
       padding-block: 1rem;
     }
 
-    @media (min-width: 1200px) {
+    @include mq(desktop) {
       grid-template-columns: 1fr 0.5rem 2fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1.5rem;
       grid-template-areas:
@@ -144,7 +151,7 @@ export default {
     width: 80%;
     align-self: center;
 
-    @media (min-width: 1200px) {
+    @include mq(desktop) {
       width: 4rem;
       margin-left: 1rem;
     }
@@ -157,7 +164,7 @@ export default {
     line-height: 1.1;
     padding-top: 0.75rem;
 
-    @media (min-width: 1200px) {
+    @include mq(desktop) {
       padding-top: 0;
     }
   }
@@ -169,7 +176,7 @@ export default {
   &__item--quantity {
     grid-area: quantity;
 
-    @media (min-width: 1200px) {
+    @include mq(desktop) {
       justify-self: flex-end;
       align-self: center;
     }
@@ -180,7 +187,7 @@ export default {
     justify-self: flex-end;
     color: var(--clr-primary-space-cadet);
 
-    @media (min-width: 1200px) {
+    @include mq(desktop) {
       justify-self: flex-end;
       align-self: center;
     }
@@ -197,7 +204,7 @@ export default {
       color: var(--clr-primary-heliotrope-gray);
     }
 
-    @media (min-width: 1200px) {
+    @include mq(desktop) {
       padding-top: 0.5rem;
       align-self: center;
     }
