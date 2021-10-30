@@ -10,7 +10,6 @@
 </template>
 
 <script>
-
 import CheckoutForm from "@/components/cart-checkout/CheckoutForm";
 import CheckoutSuccessModal from "@/components/cart-checkout/CheckoutSuccessModal";
 
@@ -51,6 +50,11 @@ export default {
   text-decoration: none;
   color: var(--clr-primary-heliotrope-gray);
   font-size: var(--fs-16pt);
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
 
 h3 {
@@ -58,30 +62,11 @@ h3 {
   padding-bottom: 1.25em;
 }
 
-//&__total-container {
-//  background-color: var(--clr-primary-isabelline);
-//  padding: 1.5em;
-//  margin-top: 3rem;
-//
-//  .btn--checkout {
-//    padding: 0.5rem 1rem;
-//    margin-top: 3rem;
-//  }
-//
-//  p {
-//    color: var(--clr-primary-space-cadet);
-//  }
-//}
-
-
-
 .total {
   &__item {
     border-top: 1px solid var(--clr-primary-heliotrope-gray);
     padding-bottom: 1rem;
   }
-
-  
 
   &__item--image {
     grid-area: image;

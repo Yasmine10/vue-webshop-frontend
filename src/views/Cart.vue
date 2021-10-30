@@ -75,7 +75,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 @use "../assets/styles/utils" as *;
 
 .cart {

@@ -158,7 +158,7 @@ input[type=text], input[type=email] {
   border: 1px solid var(--clr-neutral-gainsboro);
   padding-inline: 0.5em;
   padding-block: 0.25em;
-  font-size: var(--fs-14pt);
+  font-size: map.get($fontsizes-desktop, "body");
   color: var(--clr-primary-independence);
 
   &:focus,
@@ -166,6 +166,27 @@ input[type=text], input[type=email] {
     outline: 2px solid var(--clr-primary-silver-pink);
     caret-color: var(--clr-primary-silver-pink);
   }
+}
+
+select {
+  background-color: var(--clr-neutral-white);
+  border: 1px solid var(--clr-neutral-gainsboro);
+  padding-inline: 01em;
+  padding-block: -1em;
+
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid var(--clr-primary-independence);
+    border: none;
+  }
+}
+
+option {
+  background-color: var(--clr-neutral-white);
+  color: var(--clr-primary-space-cadet);
+  border: none;
+  border-radius: 0 !important;
+  margin: 0;
 }
 
 .is-valid {
