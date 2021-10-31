@@ -9,7 +9,7 @@
         <ProductsSorter />
       </div>
       <ProductsList :name="name" />
-      <Pagination />
+      <Pagination :name="name" />
     </div>
   </div>
 </template>
@@ -18,6 +18,7 @@
 import ProductsList from "@/components/products/ProductsList";
 import ProductsSidebar from "@/components/products/ProductsSidebar";
 import ProductsSorter from "@/components/products/ProductsSorter";
+import Pagination from "@/components/products/Pagination";
 
 export default {
   name: "Dog",
@@ -25,6 +26,7 @@ export default {
     ProductsSorter,
     ProductsSidebar,
     ProductsList,
+    Pagination,
   },
   data() {
     return {

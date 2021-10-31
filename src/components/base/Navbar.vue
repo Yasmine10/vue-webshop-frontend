@@ -2,10 +2,10 @@
   <div class="nav-wrapper">
     <nav class="nav container">
       <div class="nav__toggle">
-        <button class="nav__toggle-icon" @click="toggleMenu" v-if="!isToggled">
+        <button v-if="!isToggled" class="nav__toggle-icon" @click="toggleMenu">
           <PhList :size="32" />
         </button>
-        <button class="nav__toggle-icon" @click="toggleMenu" v-else>
+        <button v-else class="nav__toggle-icon" @click="toggleMenu">
           <PhX :size="32" />
         </button>
       </div>

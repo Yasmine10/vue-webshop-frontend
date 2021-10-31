@@ -60,6 +60,11 @@ const products = {
     },
     getAllFilteredProducts({ commit }, payload) {
       let url = `${process.env.VUE_APP_API_URL}product/filter?animalName=${payload.animal}`;
+
+      if (payload.pageNumber!== undefined && payload.pageNumber !== 0) {
+        url += `&pageNumber=${payload.pageNumber}`;
+      }
+
       if (payload.brands !== undefined && payload.brands.length > 0) {
         url += `&brands=${payload.brands}`;
       }
@@ -129,7 +134,11 @@ const products = {
       commit("resetSelectedBrands");
     },
   },
-  getters: {},
+  getters: {
+    totalProducts: (state) => {
+      return state.products.length;
+    },
+  },
 };
 
 export default products;
