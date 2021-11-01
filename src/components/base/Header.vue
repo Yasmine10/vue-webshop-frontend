@@ -4,7 +4,7 @@
       <router-link to="/home" class="header__logo header__link">
         <img src="../../assets/images/logo.png" alt="Pet World" />
       </router-link>
-      <router-link to="/user" class="header__user header__link">
+      <router-link to="/login" class="header__user header__link">
         <ph-user :size="32" />
       </router-link>
       <router-link to="/cart" class="header__cart header__link">
@@ -70,7 +70,7 @@ header {
     width: 12rem;
     height: 100%;
   }
-  
+
   &__cart {
     position: relative;
   }

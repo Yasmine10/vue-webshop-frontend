@@ -68,7 +68,7 @@ h3 {
   font-weight: map.get($fontweights, "semi-bold");
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 1px;
+  letter-spacing: 0.25px;
   color: var(--clr-primary-space-cadet);
 }
 
@@ -115,7 +115,7 @@ p {
 .btn {
   all: unset;
   cursor: pointer;
-  display: block;
+  display: inline-block;
   text-transform: uppercase;
   text-align: center;
   padding: 0.5rem 1.5rem;
@@ -153,7 +153,7 @@ label {
   padding-bottom: 0.25em;
 }
 
-input[type=text], input[type=email] {
+input[type=text], input[type=email], input[type=password] {
   // all: unset;
   border: 1px solid var(--clr-neutral-gainsboro);
   padding-inline: 0.5em;
@@ -187,6 +187,11 @@ option {
   border: none;
   border-radius: 0 !important;
   margin: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .is-valid {

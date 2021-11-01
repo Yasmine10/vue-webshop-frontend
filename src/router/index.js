@@ -42,6 +42,21 @@ const routes = [
     component: () => import("../views/Checkout"),
   },
   {
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/Login"),
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/Register"),
+  },
+  {
+    path: "/user",
+    name: "User",
+    component: () => import("../views/User"),
+  },
+  {
     path: "/",
     redirect: "/home",
   },

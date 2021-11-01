@@ -396,11 +396,6 @@ export default {
     margin-bottom: 1em;
   }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-
   input[type="radio"] {
     opacity: 0;
     position: fixed;
