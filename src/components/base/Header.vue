@@ -4,6 +4,9 @@
       <router-link to="/home" class="header__logo header__link">
         <img src="../../assets/images/logo.png" alt="Pet World" />
       </router-link>
+      <router-link to="/user" class="header__user header__link">
+        <ph-user :size="32" />
+      </router-link>
       <router-link to="/cart" class="header__cart header__link">
         <ph-shopping-cart size="32" />
         <CartBadge />
@@ -13,7 +16,7 @@
 </template>
 
 <script>
-import { PhShoppingCart } from "phosphor-vue";
+import { PhUser, PhShoppingCart } from "phosphor-vue";
 import { image } from "@/mixins/image";
 import CartBadge from "@/components/cart-checkout/CartBadge";
 
@@ -21,6 +24,7 @@ export default {
   name: "Header",
   components: {
     CartBadge,
+    PhUser,
     PhShoppingCart,
   },
   mixins: [image],
@@ -47,11 +51,16 @@ header {
 
     &:nth-child(2),
     &:nth-child(2) {
+      margin-left: auto;
+      padding-right: 0.75rem;
+    }
+
+    &:not(:first-child) {
       padding-top: 0.5em;
     }
 
-    &:nth-child(2):hover,
-    &:nth-child(2):focus {
+    &:not(:first-child):hover,
+    &:not(:first-child):focus {
       color: var(--clr-primary-heliotrope-gray);
     }
   }
@@ -60,6 +69,10 @@ header {
     display: flex;
     width: 12rem;
     height: 100%;
+  }
+  
+  &__cart {
+    position: relative;
   }
 }
 </style>
