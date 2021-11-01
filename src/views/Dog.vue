@@ -6,7 +6,7 @@
     <div class="product-view__products">
       <div class="products__header">
         <h3>Hond</h3>
-        <ProductsSorter />
+<!--        <ProductsSorter />-->
       </div>
       <ProductsList :name="name" />
       <Pagination :name="name" />
@@ -15,16 +15,16 @@
 </template>
 
 <script>
-import ProductsList from "@/components/products/ProductsList";
 import ProductsSidebar from "@/components/products/ProductsSidebar";
-import ProductsSorter from "@/components/products/ProductsSorter";
+// import ProductsSorter from "@/components/products/ProductsSorter";
+import ProductsList from "@/components/products/ProductsList";
 import Pagination from "@/components/products/Pagination";
 
 export default {
   name: "Dog",
   components: {
-    ProductsSorter,
     ProductsSidebar,
+    // ProductsSorter,
     ProductsList,
     Pagination,
   },
@@ -39,10 +39,6 @@ export default {
 <style scoped lang="scss">
 @use "../assets/styles/utils" as *;
 
-h3 {
-  //padding-bottom: 1.5em;
-}
-
 .product-view {
   display: flex;
   flex-direction: column;
@@ -56,12 +52,12 @@ h3 {
     flex-grow: 0;
     flex-shrink: 0;
   }
-  
+
   .products__header {
     display: flex;
     flex-direction: column;
     padding-bottom: 1.5rem;
-    
+
     @include mq(tablet) {
       flex-direction: row;
       justify-content: space-between;

@@ -111,7 +111,6 @@ export default {
   methods: {
     toggleFilter() {
       this.isToggled = !this.isToggled;
-      console.log(this.isToggled);
     },
     removeAllFilters(event) {
       event.preventDefault();
@@ -153,13 +152,13 @@ export default {
     visibility: visible;
     top: 0;
   }
-  
+
   &--show {
     height: initial;
     visibility: visible;
-    z-index: 100;
+    z-index: 10;
     position: absolute;
-    transform: translatex(2.6rem);
+    transform: translatex(15%);
     background-color: var(--clr-primary-isabelline);
     padding: 1.5rem;
   }
