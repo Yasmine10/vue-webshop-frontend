@@ -2,14 +2,40 @@
   <div class="login container padding-page">
     <div class="login-wrapper">
       <h3>Inloggen</h3>
-      <form>
+      <form @submit.prevent="login">
         <div class="form-group">
           <label for="email">Email</label>
-          <input id="email" type="email" name="email" />
+          <input
+            id="email"
+            type="email"
+            name="email"
+            v-model="loginInfo.email"
+            :class="{'is-valid': v$.loginInfo.email.$errors.length > 0}"
+          />
+          <div
+            v-for="(error, index) of v$.loginInfo.email.$errors"
+            :key="index"
+            class="error-group"
+          >
+            <small class="invalid-feedback">{{ error.$message }}</small>
+          </div>
         </div>
         <div class="form-group">
           <label for="password">Wachtwoord</label>
-          <input id="password" type="password" name="password" />
+          <input
+            id="password"
+            type="password"
+            name="password"
+            v-model="loginInfo.password"
+            :class="{'is-valid': v$.loginInfo.password.$errors.length > 0}"
+          />
+          <div
+            v-for="(error, index) of v$.loginInfo.password.$errors"
+            :key="index"
+            class="error-group"
+          >
+            <small class="invalid-feedback">{{ error.$message }}</small>
+          </div>
         </div>
         <button type="submit" class="btn-primary btn--login">Inloggen</button>
       </form>
@@ -43,15 +69,49 @@
 
 <script>
 import { PhCheck } from "phosphor-vue";
+import useVuelidate from "@vuelidate/core";
+import { required, email, helpers } from "@vuelidate/validators";
 
 export default {
   name: "Login",
   components: {
     PhCheck,
   },
+  setup() {
+    return { v$: useVuelidate() };
+  },
+  data() {
+    return {
+      loginInfo: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  validations() {
+    return {
+      loginInfo: {
+        email: {
+          required: helpers.withMessage("Email is verplicht", required),
+          email: helpers.withMessage("Moet een geldig email adres zijn", email),
+        },
+        password: {
+          required: helpers.withMessage("Wachtwoord is verplicht", required),
+        },
+      },
+    };
+  },
   methods: {
     goToRegister() {
       this.$router.push("/register");
+    },
+    async login() {
+      const isFormCorrect = await this.v$.$validate();
+      if (!isFormCorrect) {
+        return;
+      }
+
+      console.log("login gelukt!");
     },
   },
 };
@@ -60,13 +120,19 @@ export default {
 <style scoped lang="scss">
 @use "../assets/styles/utils" as *;
 
+.padding-page {
+  padding-top: 6rem;
+}
+
 .login {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
+  
+  
 
   @include mq(tablet) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 2fr;
     grid-template-rows: 1fr;
   }
 
