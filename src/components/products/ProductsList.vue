@@ -1,6 +1,7 @@
 <template>
   <div class="product__list">
-    <article
+    <p v-if="products.length === 0">Geen producten om weer te geven</p>
+    <article v-else
       v-for="product in products"
       :key="product.id"
       class="product__item"
@@ -17,7 +18,10 @@
       </div>
       <div class="product__buy">
         <h3 class="price">&euro; {{ product.price }}</h3>
-        <button class="btn btn--cart" @click.prevent="buyProduct(product)">
+        <button
+          class="btn-primary btn--cart"
+          @click.prevent="buyProduct(product)"
+        >
           <PhShoppingCart :size="32" />
         </button>
       </div>
@@ -46,8 +50,11 @@ export default {
       return this.$store.state.products.products;
     },
   },
+  watch: {
+    products() {},
+  },
   created() {
-    this.$store.dispatch("getAllProductsByAnimal", { name: this.name });
+    this.$store.dispatch("getAllFilteredProducts", { animal: this.name });
   },
   methods: {
     viewProduct(productId) {
@@ -83,6 +90,7 @@ export default {
   }
 
   &__image {
+    padding-block: 1rem 1.5rem;
     cursor: pointer;
   }
 

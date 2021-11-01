@@ -9,10 +9,10 @@
       </div>
       <div class="product__content">
         <h3 class="product-name">{{ product.name }}</h3>
-        <small>{{ product.brand }}</small>
-        <p class="price">
-          &euro; {{ product.price }} <small>(incl. BTW)</small>
-        </p>
+        <small class="product-brand">{{ product.brand }}</small>
+        <h3 class="price">
+          &euro; {{ product.price }} <span>(incl. BTW)</span>
+        </h3>
         <p class="in-stock">
           <ph-circle-wavy-check :size="20" weight="fill" />
           <span>Op voorraad</span>
@@ -30,8 +30,9 @@
               {{ number }}
             </option>
           </select>
-          <button class="btn btn--cart" @click.prevent="buyProduct">
-            <ph-shopping-cart class="icon" :size="28" /> In winkelmandje
+          <button class="btn-primary btn--cart" @click.prevent="buyProduct">
+            <ph-shopping-cart class="icon" :size="28" />
+            <span>In winkelmandje</span>
           </button>
         </div>
         <div class="product__advantages">
@@ -62,21 +63,17 @@
 </template>
 
 <script>
-import {
-  PhCircleWavyCheck,
-  PhCheck,
-  PhShoppingCart,
-} from "phosphor-vue";
+import { PhCircleWavyCheck, PhCheck, PhShoppingCart } from "phosphor-vue";
 import { image } from "@/mixins/image";
 
 export default {
   name: "ProductDetail",
-  mixins: [image],
   components: {
     PhCircleWavyCheck,
     PhCheck,
     PhShoppingCart,
   },
+  mixins: [image],
   data() {
     return {
       quantityData: {
@@ -84,6 +81,11 @@ export default {
         selectedQuantity: "",
       },
     };
+  },
+  computed: {
+    product() {
+      return this.$store.state.products.product;
+    },
   },
   created() {
     this.$store.dispatch("getProductById", { id: this.$route.params.id });
@@ -95,11 +97,6 @@ export default {
       quantity
     );
     this.quantityData.selectedQuantity = this.quantityData.quantity[0];
-  },
-  computed: {
-    product() {
-      return this.$store.state.products.product;
-    },
   },
   methods: {
     goBack() {
@@ -116,13 +113,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:map";
+@use "../assets/styles/utils" as *;
+@use "../assets/styles/global" as *;
+
 .product {
   .go-back-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--clr-primary-heliotrope-gray);
-    font-size: var(--fs-16pt);
+    font-size: map.get($fontsizes-desktop, "body");
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
   }
 
   &__main-info {
@@ -131,11 +137,11 @@ export default {
     gap: 3rem;
     margin-block: 3rem;
 
-    @media (min-width: 768px) {
+    @include mq(tablet) {
       flex-direction: row;
     }
 
-    @media (min-width: 1000px) {
+    @include mq(desktop) {
       gap: 6rem;
     }
   }
@@ -145,11 +151,19 @@ export default {
   }
 
   &__content {
+    .product-name {
+      color: var(--clr-primary-independence);
+    }
+
+    .product-brand {
+      color: var(--clr-primary-heliotrope-gray);
+    }
+
     .in-stock {
       display: flex;
       align-items: center;
-      color: var(--clr-accent-ocean-green);
-      font-size: var(--fs-16pt);
+      color: var(--clr-accent-pine-green);
+      font-size: map.get($fontsizes-desktop, "body");
       padding-top: 0.25em;
 
       span {
@@ -157,21 +171,20 @@ export default {
       }
     }
 
-    @media (min-width: 768px) {
+    @include mq(tablet) {
       align-self: center;
-    }
-
-    @media (min-width: 1200px) {
-      h3 {
-        font-size: var(--fs-30pt);
-      }
     }
   }
 
   &__add-to-cart {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-block: 2rem;
+
+    .btn--cart {
+      display: flex;
+      align-items: center;
+    }
 
     .icon {
       margin-right: 0.75em;
@@ -179,66 +192,50 @@ export default {
 
     @media (min-width: 400px) {
       margin-block: 3rem;
-      justify-content: flex-start;
+      flex-direction: row;
       gap: 1rem;
     }
   }
 
   &__advantages {
     display: flex;
-    font-size: var(--fs-16pt);
+    align-items: center;
+    font-size: map.get($fontsizes-desktop, "body");
     padding-bottom: 0.25em;
 
     .icon {
-      color: var(--clr-accent-ocean-green);
-      margin-right: 0.5em;
+      color: var(--clr-accent-pine-green);
+      margin-right: 0.75em;
     }
   }
 
   &__description-title {
-    position: relative;
     margin-bottom: 0.5em;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 2.5rem;
-      height: 3px;
-      background-color: var(--clr-primary-silver-pink);
-    }
-  }
-
-  &__description-text {
-    font-size: var(--fs-16pt);
   }
 
   &__filters {
-    font-size: var(--fs-16pt);
     margin-top: 2em;
 
     .category,
     .animal {
       display: grid;
-      grid-template-columns: 5rem auto;
+      grid-template-columns: 7rem auto;
       align-items: center;
       grid-gap: 1.5rem;
     }
 
     h5 {
-      text-transform: uppercase;
+      font-size: map.get($fontsizes-desktop, "body");
     }
   }
 }
 
 .price {
-  font-size: var(--fs-24pt);
   padding-top: 1em;
+  padding-bottom: 0.25em;
 
-  small {
-    font-size: var(--fs-16pt);
+  span {
+    font-size: map.get($fontsizes-desktop, "body");
   }
 }
 </style>

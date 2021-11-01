@@ -23,7 +23,7 @@
       <p>Subtotaal</p>
       <p>&euro; {{ subtotalCartItems }}</p>
     </div>
-    <div v-if="name === 'checkout'" class="summary__delivery-costs">
+    <div v-if="deliveryCosts" class="summary__delivery-costs">
       <p>Verzendkosten</p>
       <p>&euro; {{ deliveryCosts }}</p>
     </div>

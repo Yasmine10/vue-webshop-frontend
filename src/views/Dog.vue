@@ -1,24 +1,32 @@
 <template>
   <div class="product-view container padding-page">
-    <div>
+    <div class="product-view__sidebar">
       <ProductsSidebar :name="name" />
     </div>
-    <div>
-      <h3>Hond</h3>
+    <div class="product-view__products">
+      <div class="products__header">
+        <h3>Hond</h3>
+<!--        <ProductsSorter />-->
+      </div>
       <ProductsList :name="name" />
+      <Pagination :name="name" />
     </div>
   </div>
 </template>
 
 <script>
-import ProductsList from "@/components/products/ProductsList";
 import ProductsSidebar from "@/components/products/ProductsSidebar";
+// import ProductsSorter from "@/components/products/ProductsSorter";
+import ProductsList from "@/components/products/ProductsList";
+import Pagination from "@/components/products/Pagination";
 
 export default {
   name: "Dog",
   components: {
     ProductsSidebar,
+    // ProductsSorter,
     ProductsList,
+    Pagination,
   },
   data() {
     return {
@@ -29,32 +37,32 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 @use "../assets/styles/utils" as *;
-
-h3 {
-  padding-bottom: 1.5em;
-}
 
 .product-view {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
+
   @include mq(desktop) {
     flex-direction: row;
   }
 
-    &__sidebar {
-      width: 20%;
-      flex-grow: 0;
-      flex-shrink: 0;
-    }
+  &__sidebar {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
 
-    &__products {
-      flex-grow: 2;
-      flex-shrink: 1;
+  .products__header {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+
+    @include mq(tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
+  }
 }
-
 </style>
