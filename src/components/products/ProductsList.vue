@@ -1,8 +1,9 @@
 <template>
   <div class="product__list">
     <p v-if="products.length === 0">Geen producten om weer te geven</p>
-    <article v-else
+    <article
       v-for="product in products"
+      v-else
       :key="product.id"
       class="product__item"
     >

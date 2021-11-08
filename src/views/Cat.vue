@@ -6,7 +6,7 @@
     <div class="product-view__products">
       <div class="products__header">
         <h3>Kat</h3>
-<!--        <ProductsSorter />-->
+        <!--        <ProductsSorter />-->
       </div>
       <ProductsList :name="name" />
       <Pagination :name="name" />

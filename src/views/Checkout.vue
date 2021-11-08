@@ -32,9 +32,6 @@ export default {
   watch: {
     checkoutSuccess() {},
   },
-  created() {
-    this.$store.disp;
-  },
   methods: {
     goBack() {
       this.$router.back();

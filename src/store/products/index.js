@@ -61,7 +61,7 @@ const products = {
     getAllFilteredProducts({ commit }, payload) {
       let url = `${process.env.VUE_APP_API_URL}product/filter?animalName=${payload.animal}`;
 
-      if (payload.pageNumber!== undefined && payload.pageNumber !== 0) {
+      if (payload.pageNumber !== undefined && payload.pageNumber !== 0) {
         url += `&pageNumber=${payload.pageNumber}`;
       }
 
@@ -77,7 +77,6 @@ const products = {
       //   url += `&orderby=p.price ASC`;
       // }
 
-
       console.log(url);
 
       axios
@@ -85,7 +84,7 @@ const products = {
         .then((response) => {
           console.log(response.data);
           commit("getAllProducts", response.data.content);
-          commit("getPagination", response.data)
+          commit("getPagination", response.data);
         })
         .catch((error) => console.log(error));
     },

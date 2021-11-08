@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination" v-if="totalProducts > 0">
+  <div v-if="totalProducts > 0" class="pagination">
     <div class="prev-btn page__item" @click="goToPreviousPage">
       <ph-caret-double-left :size="16" />
     </div>
