@@ -7,10 +7,10 @@
           <label for="email">Email</label>
           <input
             id="email"
+            v-model="loginInfo.email"
             type="email"
             name="email"
-            v-model="loginInfo.email"
-            :class="{'is-valid': v$.loginInfo.email.$errors.length > 0}"
+            :class="{ 'is-valid': v$.loginInfo.email.$errors.length > 0 }"
           />
           <div
             v-for="(error, index) of v$.loginInfo.email.$errors"
@@ -24,10 +24,10 @@
           <label for="password">Wachtwoord</label>
           <input
             id="password"
+            v-model="loginInfo.password"
             type="password"
             name="password"
-            v-model="loginInfo.password"
-            :class="{'is-valid': v$.loginInfo.password.$errors.length > 0}"
+            :class="{ 'is-valid': v$.loginInfo.password.$errors.length > 0 }"
           />
           <div
             v-for="(error, index) of v$.loginInfo.password.$errors"
@@ -128,8 +128,6 @@ export default {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
-  
-  
 
   @include mq(tablet) {
     grid-template-columns: 2fr 2fr;
