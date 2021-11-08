@@ -24,7 +24,7 @@ const cart = {
       }
     },
     removeFromCart(state, payload) {
-      let indexToDelete = state.cartItems.indexOf(Number(payload.id));
+      let indexToDelete = state.cartItems.indexOf(payload.item);
       state.cartItems.splice(indexToDelete, 1);
     },
     resetCart(state) {

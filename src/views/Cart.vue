@@ -25,7 +25,7 @@
           <p class="cart__item--price">&euro; {{ item.product.price }}</p>
           <a
             class="cart__item--remove-btn"
-            @click.prevent="removeProduct(item.product.id)"
+            @click.prevent="removeProduct(item)"
           >
             <ph-trash class="icon" :size="24" />
           </a>
@@ -67,8 +67,8 @@ export default {
     },
   },
   methods: {
-    removeProduct(productId) {
-      this.$store.dispatch("removeFromCart", { id: productId });
+    removeProduct(item) {
+      this.$store.dispatch("removeFromCart", { item: item });
     },
   },
 };
