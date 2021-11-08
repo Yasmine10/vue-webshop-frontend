@@ -5,7 +5,7 @@
     </div>
     <div class="product-view__products">
       <div class="products__header">
-        <h3>Knaagdier</h3>
+        <h3 class="h3">Knaagdier</h3>
         <!--        <ProductsSorter />-->
       </div>
       <ProductsList :name="name" />

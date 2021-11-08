@@ -14,11 +14,11 @@
         @click.prevent="viewProduct(product.id)"
       />
       <div class="product__info">
-        <h5 class="product__name" @click.prevent="viewProduct(product.id)">{{ product.name }}</h5>
+        <h5 class="product__name h5" @click.prevent="viewProduct(product.id)">{{ product.name }}</h5>
         <small>{{ product.brand }}</small>
       </div>
       <div class="product__buy">
-        <h3 class="price">&euro; {{ product.price }}</h3>
+        <h3 class="price h3">&euro; {{ product.price }}</h3>
         <button
           class="btn-primary btn--cart"
           @click.prevent="buyProduct(product)"

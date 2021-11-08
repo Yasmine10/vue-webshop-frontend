@@ -1,6 +1,6 @@
 <template>
   <div class="total-price-summary">
-    <h5 class="summary__title">{{ title }}</h5>
+    <h5 class="summary__title h5">{{ title }}</h5>
     <div
       v-if="name === 'checkout' && totalCartItems > 0"
       class="summary__items"
@@ -32,7 +32,7 @@
       <p>&euro; {{ taxes }}</p>
     </div>
     <div class="summary__total">
-      <h5>Totaal</h5>
+      <h5 class="h5">Totaal</h5>
       <p class="text-bold">
         &euro; {{ deliveryCosts ? totalPriceOrder : subtotalCartItems }}
       </p>

@@ -170,7 +170,8 @@ export default {
       if (!isFormCorrect) {
         return;
       }
-      
+
+      //TODO: create backend to save subscription emails
     },
   },
 };
@@ -228,6 +229,7 @@ export default {
     padding: 1rem;
 
     box-shadow: 0 0 20px var(--clr-neutral-platinum);
+    cursor: pointer;
 
     &--icon {
       width: 60%;

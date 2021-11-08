@@ -3,7 +3,7 @@
     <a href="" class="go-back-link" @click.prevent="goBack"
       >Terug naar overzicht</a
     >
-    <h3>Checkout</h3>
+    <h3 class="h3">Checkout</h3>
     <CheckoutForm :title="title" />
     <CheckoutSuccessModal :show-modal="checkoutSuccess" />
   </div>

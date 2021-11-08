@@ -8,9 +8,9 @@
         <img :src="getImagePath(product.imageUrl)" :alt="product.name" />
       </div>
       <div class="product__content">
-        <h3 class="product-name">{{ product.name }}</h3>
+        <h3 class="product-name h3">{{ product.name }}</h3>
         <small class="product-brand">{{ product.brand }}</small>
-        <h3 class="price">
+        <h3 class="price h3">
           &euro; {{ product.price }} <span>(incl. BTW)</span>
         </h3>
         <p class="in-stock">
@@ -46,16 +46,16 @@
       </div>
     </div>
     <div class="product__description">
-      <h4 class="product__description-title">Beschrijving</h4>
+      <h4 class="product__description-title h4">Beschrijving</h4>
       <p class="product__description-text">{{ product.description }}</p>
     </div>
     <div class="product__filters">
       <div class="category">
-        <h5>Categorie</h5>
+        <h5 class="h5">Categorie</h5>
         <p>{{ product.category.name }}</p>
       </div>
       <div class="animal">
-        <h5>Dier</h5>
+        <h5 class="h5">Dier</h5>
         <p>{{ product.animal.name }}</p>
       </div>
     </div>
@@ -179,6 +179,7 @@ export default {
   &__add-to-cart {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     margin-block: 2rem;
 
     .btn--cart {
@@ -193,7 +194,6 @@ export default {
     @media (min-width: 400px) {
       margin-block: 3rem;
       flex-direction: row;
-      gap: 1rem;
     }
   }
 
@@ -224,7 +224,7 @@ export default {
       grid-gap: 1.5rem;
     }
 
-    h5 {
+    .h5 {
       font-size: map.get($fontsizes-desktop, "body");
     }
   }

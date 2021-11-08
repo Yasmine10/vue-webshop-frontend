@@ -4,7 +4,7 @@
       <footer class="footer">
         <div class="footer__nav">
           <section class="footer__nav--products">
-            <h5 class="footer__nav-title">Producten</h5>
+            <h5 class="footer__nav-title h5">Producten</h5>
             <ul class="footer__nav-list">
               <li class="footer__nav-item">
                 <router-link to="/dog" class="footer__nav-link">
@@ -30,7 +30,7 @@
           </section>
 
           <section class="footer__nav--customer-service">
-            <h5 class="footer__nav-title">Klantenservice</h5>
+            <h5 class="footer__nav-title h5">Klantenservice</h5>
             <ul class="footer__nav-list">
               <li class="footer__nav-item">Betalen</li>
               <li class="footer__nav-item">Levertijd en verzendkosten</li>
@@ -40,7 +40,7 @@
           </section>
 
           <section class="footer__nav--company">
-            <h5 class="footer__nav-title">Bedrijf</h5>
+            <h5 class="footer__nav-title h5">Bedrijf</h5>
             <ul class="footer__nav-list">
               <li class="footer__nav-item">Over ons</li>
               <li class="footer__nav-item">Privacy verklaring</li>

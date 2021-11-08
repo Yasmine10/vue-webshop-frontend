@@ -4,8 +4,8 @@
       <div class="modal__container">
         <div>
           <ph-shopping-bag class="icon" :size="128" />
-          <h3>Bedankt voor je bestelling!</h3>
-          <p>Je krijgt zo snel mogelijk een bestelbevestiging via email.</p>
+          <h3 class="h3">Bedankt voor je bestelling!</h3>
+          <p class="p">Je krijgt zo snel mogelijk een bestelbevestiging via email.</p>
           <a class="btn-secondary" @click.prevent="closeModal"
             >Terug naar de startpagina</a
           >

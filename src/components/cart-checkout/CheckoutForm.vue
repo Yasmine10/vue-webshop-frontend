@@ -3,7 +3,7 @@
     <form class="checkout__form" @submit.prevent="addUserInfo">
       <div class="checkout__container">
         <section class="checkout__personal-info">
-          <h4>Gegevens</h4>
+          <h4 class="h4">Gegevens</h4>
           <div class="personal-info__content">
             <div class="form-group">
               <label>Voornaam</label>
@@ -65,7 +65,7 @@
           </div>
         </section>
         <section class="checkout__address">
-          <h4>Adres</h4>
+          <h4 class="h4">Adres</h4>
           <div class="address__content">
             <div class="form-group">
               <label>Straat</label>
@@ -142,7 +142,7 @@
           </div>
         </section>
         <section class="checkout__delivery">
-          <h4>Levering</h4>
+          <h4 class="h4">Levering</h4>
           <div class="delivery__content">
             <div class="form-group">
               <input
@@ -185,7 +185,7 @@
           </div>
         </section>
         <section class="checkout__payment">
-          <h4>Betaling</h4>
+          <h4 class="h4">Betaling</h4>
           <div class="payment__content">
             <div class="form-group">
               <input
@@ -478,12 +478,12 @@ export default {
   .checkout {
     form {
       flex-direction: row;
-      flex-basis: 55%;
+      flex-basis: 50%;
       gap: 2rem;
     }
 
     &__summary {
-      flex-basis: 40%;
+      flex-basis: 45%;
       flex-shrink: 0;
       & > * {
         margin-top: 0 !important;
@@ -495,7 +495,7 @@ export default {
 @include mq(desktop) {
   .checkout {
     &__container {
-      flex: 2;
+      flex: 3;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1.5fr;
