@@ -60,7 +60,7 @@ header {
     }
 
     &:not(:first-child):hover,
-    &:not(:first-child):focus {
+    &:not(:first-child):focus-visible {
       color: var(--clr-primary-heliotrope-gray);
     }
   }

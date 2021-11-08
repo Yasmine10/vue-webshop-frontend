@@ -14,7 +14,7 @@
         @click.prevent="viewProduct(product.id)"
       />
       <div class="product__info">
-        <h5 class="product__name">{{ product.name }}</h5>
+        <h5 class="product__name" @click.prevent="viewProduct(product.id)">{{ product.name }}</h5>
         <small>{{ product.brand }}</small>
       </div>
       <div class="product__buy">

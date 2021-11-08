@@ -1,21 +1,5 @@
 @use "sass:map";
 
-//.product-view {
-//  display: flex;
-//  gap: 2rem;
-//
-//  &__sidebar {
-//    width: 20%;
-//    flex-grow: 0;
-//    flex-shrink: 0;
-//  }
-//
-//  &__products {
-//    flex-grow: 2;
-//    flex-shrink: 1;
-//  }
-//}
-
 /***** typography styles *****/
 
 $fontsizes-desktop: (
@@ -39,15 +23,15 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5 {
+.h1, .h2, .h3, .h4, .h5 {
   font-family: var(--ff-accent);
 }
 
-h2, h3, h4, h5 {
+.h2, .h3, .h4, .h5 {
   font-weight: map.get($fontweights, "semi-bold");
 }
 
-h1 {
+.h1 {
   font-size: map.get($fontsizes-desktop, "h1");
   font-weight: map.get($fontweights, "bold");
   line-height: 1;
@@ -55,7 +39,7 @@ h1 {
   color: var(--clr-primary-independence);
 }
 
-h2 {
+.h2 {
   font-size: map.get($fontsizes-desktop, "h2");
   text-transform: uppercase;
   line-height: 1.1;
@@ -63,7 +47,7 @@ h2 {
   color: var(--clr-primary-independence);
 }
 
-h3 {
+.h3 {
   font-size: map.get($fontsizes-desktop, "h3");
   font-weight: map.get($fontweights, "semi-bold");
   text-transform: uppercase;
@@ -72,7 +56,7 @@ h3 {
   color: var(--clr-primary-space-cadet);
 }
 
-h4 {
+.h4 {
   font-size: map.get($fontsizes-desktop, "h4");
   font-weight: map.get($fontweights, "semi-bold");
   line-height: 1.1;
@@ -94,7 +78,7 @@ h4 {
   }
 }
 
-h5 {
+.h5 {
   font-size: map.get($fontsizes-desktop, "h5");
   font-weight: map.get($fontweights, "semi-bold");
   text-transform: uppercase;
@@ -102,12 +86,16 @@ h5 {
   color: var(--clr-primary-space-cadet);
 }
 
-p {
+.p {
   color: var(--clr-primary-heliotrope-gray);
 }
 
 .text-bold {
   font-weight: map.get($fontweights, "bold");
+}
+
+.text-uppercase {
+  text-transform: uppercase;
 }
 
 /***** button styles *****/
@@ -126,7 +114,7 @@ p {
   background-color: var(--clr-primary-space-cadet);
   color: var(--clr-neutral-white);
 
-  &:hover, &:focus {
+  &:hover, &:focus-visible {
     outline: 2px solid var(--clr-primary-space-cadet);
     background-color: var(--clr-neutral-white);
     color: var(--clr-primary-space-cadet);
@@ -138,7 +126,7 @@ p {
   background-color: var(--clr-primary-heliotrope-gray);
   color: var(--clr-neutral-white);
 
-  &:hover, &:focus {
+  &:hover, &:focus-visible {
     outline: 2px solid var(--clr-primary-heliotrope-gray);
     background-color: var(--clr-neutral-white);
     color: var(--clr-primary-heliotrope-gray);
